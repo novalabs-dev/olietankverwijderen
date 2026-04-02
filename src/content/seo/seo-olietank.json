@@ -1,0 +1,62 @@
+{
+  "niche": "olietank",
+  "homepage": {
+    "hero_h1": "Vind gecertificeerde olietankverwijderaars",
+    "hero_subtitle": "Vergelijk BRL SIKB 7000 gecertificeerde bedrijven bij jou in de buurt. Bekijk reviews en vraag gratis offertes aan.",
+    "cta_primary": "Gratis offerte aanvragen",
+    "cta_secondary": "Bekijk alle bedrijven",
+    "intro_tekst": "In Nederland liggen nog tienduizenden ondergrondse olietanks in tuinen en onder opritten. Als eigenaar ben je verplicht om een ongebruikte tank te laten verwijderen of onklaar te maken. Via Olietankverwijderen.nl vergelijk je gecertificeerde bedrijven, lees je alles over kosten en regelgeving, en vraag je gratis offertes aan.",
+    "waarom_verwijderen": {
+      "titel": "Waarom je olietank laten verwijderen?",
+      "redenen": [
+        {
+          "titel": "Wettelijke verplichting",
+          "tekst": "Een ongebruikte olietank moet worden verwijderd of onklaar gemaakt. De gemeente kan handhaven met dwangsommen."
+        },
+        {
+          "titel": "Bodemverontreiniging voorkomen",
+          "tekst": "Oude tanks kunnen gaan lekken door roest. Hoe langer je wacht, hoe groter het risico op kostbare bodemsanering."
+        },
+        {
+          "titel": "Woningwaarde beschermen",
+          "tekst": "Bij verkoop eist de koper een bodemonderzoek. Een verwijderde tank met schone grondverklaring verhoogt de verkoopbaarheid."
+        },
+        {
+          "titel": "Aansprakelijkheid beperken",
+          "tekst": "Als eigenaar ben je aansprakelijk voor verontreiniging die zich verspreidt, ook naar percelen van je buren."
+        }
+      ]
+    }
+  },
+  "value_props": [
+    {
+      "titel": "Gecertificeerd",
+      "tekst": "Alleen BRL SIKB 7000 gecertificeerde bedrijven. Geverifieerd via het SIKB-register."
+    },
+    {
+      "titel": "Vergelijk",
+      "tekst": "Bekijk specialisaties, werkgebied en ervaring. Maak een weloverwogen keuze voor uw situatie."
+    },
+    {
+      "titel": "Gratis offertes",
+      "tekst": "Vraag gratis en vrijblijvend offertes aan bij meerdere bedrijven in uw regio. Bespaar door te vergelijken."
+    }
+  ],
+  "meta": {
+    "home_title": "Olietankverwijderen.nl — Vergelijk gecertificeerde olietankverwijderaars",
+    "home_description": "Vergelijk gecertificeerde olietankverwijderingsbedrijven in Nederland. Vraag gratis offertes aan en vind de beste specialist bij jou in de buurt.",
+    "bedrijven_title": "Alle olietankverwijderaars in Nederland | Olietankverwijderen.nl",
+    "bedrijven_description": "Overzicht van BRL SIKB 7000 gecertificeerde olietankverwijderaars in Nederland. Filter op regio en specialisatie.",
+    "offerte_title": "Gratis offerte aanvragen voor olietankverwijdering | Olietankverwijderen.nl",
+    "offerte_description": "Vraag gratis en vrijblijvend offertes aan voor het verwijderen van uw olietank. Vergelijk prijzen van gecertificeerde bedrijven.",
+    "kennisbank_title": "Kennisbank olietankverwijdering | Olietankverwijderen.nl",
+    "kennisbank_description": "Alles over olietank verwijderen: kosten, wet- en regelgeving, bodemsanering en meer. Onafhankelijke informatie voor huiseigenaren.",
+    "over_title": "Over Olietankverwijderen.nl",
+    "over_description": "Olietankverwijderen.nl is een onafhankelijk vergelijkingsplatform voor olietankverwijdering in Nederland."
+  },
+  "structured_data": {
+    "organization_name": "Olietankverwijderen.nl",
+    "organization_type": "WebSite",
+    "description": "Onafhankelijk vergelijkingsplatform voor gecertificeerde olietankverwijderaars in Nederland"
+  }
+}

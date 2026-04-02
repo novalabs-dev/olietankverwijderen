@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{bedrijfsnaam}} - Sloop- & Milieuoplossingen | {{stad}}</title>
+    <meta name="description" content="{{bedrijfsnaam}} - SC-530 & SC-540 gecertificeerd. Asbestsanering, sloopwerk, bodemsanering en inventarisatie in {{regio}}. {{beschrijving}}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand': {
+                            'black': '#141414',
+                            'charcoal': '#1e1e1e',
+                            'dark': '#262626',
+                            'lime': '#c8e62e',
+                            'lime-dark': '#a8c420',
+                            'grey': '#e8e8e8',
+                            'muted': '#888888',
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['"Bebas Neue"', 'sans-serif'],
+                        'body': ['"Work Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --black: #141414;
+            --charcoal: #1e1e1e;
+            --dark: #262626;
+            --lime: #c8e62e;
+            --lime-dark: #a8c420;
+            --grey: #e8e8e8;
+            --muted: #888888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Work Sans', sans-serif; background: var(--black); color: var(--grey); }
+
+        /* Grain texture overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px 200px;
+        }
+
+        /* Diagonal sections */
+        .angle-bottom {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        .angle-top {
+            clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+        }
+        .angle-both {
+            clip-path: polygon(0 6%, 100% 0, 100% 94%, 0 100%);
+        }
+
+        @media (max-width: 768px) {
+            .angle-bottom { clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%); }
+            .angle-top { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%); }
+            .angle-both { clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%); }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Stagger children */
+        .stagger > * { transition-delay: calc(var(--i, 0) * 0.12s); }
+
+        /* Tab system */
+        .tab-btn { position: relative; }
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--lime);
+            transition: width 0.3s ease;
+        }
+        .tab-btn.active::after { width: 100%; }
+        .tab-btn.active { color: var(--lime); }
+
+        .tab-panel { display: none; }
+        .tab-panel.active { display: grid; }
+
+        /* Counter numbers */
+        .counter-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: 1;
+            color: var(--black);
+        }
+
+        /* Image placeholders */
+        .img-placeholder {
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .img-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(200,230,46,0.08) 0%, transparent 60%);
+        }
+        .img-placeholder svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.2;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .mobile-menu.open { transform: translateX(0); }
+
+        /* Form inputs */
+        .form-input {
+            background: var(--dark);
+            border: 1px solid #333;
+            color: var(--grey);
+            padding: 0.875rem 1rem;
+            width: 100%;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.9375rem;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+        .form-input:focus { border-color: var(--lime); }
+        .form-input::placeholder { color: var(--muted); }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--black); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #444; }
+
+        /* Job listing hover */
+        .job-card {
+            border-left: 3px solid transparent;
+            transition: border-color 0.25s, background 0.25s;
+        }
+        .job-card:hover {
+            border-left-color: var(--lime);
+            background: var(--dark);
+        }
+
+        /* Project card overlay */
+        .project-card .overlay {
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+        .project-card:hover .overlay { opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================ -->
+    <!-- HEADER                                       -->
+    <!-- ============================================ -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: transparent;">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20">
+            <!-- Logo / company name -->
+            <a href="#" class="font-heading text-3xl tracking-wide text-white hover:text-brand-lime transition-colors">
+                {{bedrijfsnaam}}
+            </a>
+
+            <!-- Desktop nav -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#diensten" class="text-sm font-medium text-brand-grey/80 hover:text-brand-lime transition-colors tracking-wide uppercase">Diensten</a>
+                <a href="#projecten" class="text-sm font-medium text-brand-grey/80 hover:text-brand-lime transition-colors tracking-wide uppercase">Projecten</a>
+                <a href="#cijfers" class="text-sm font-medium text-brand-grey/80 hover:text-brand-lime transition-colors tracking-wide uppercase">Cijfers</a>
+                <a href="#team" class="text-sm font-medium text-brand-grey/80 hover:text-brand-lime transition-colors tracking-wide uppercase">Team</a>
+                <a href="#vacatures" class="text-sm font-medium text-brand-grey/80 hover:text-brand-lime transition-colors tracking-wide uppercase">Vacatures</a>
+                <a href="#contact" class="text-sm font-medium text-brand-grey/80 hover:text-brand-lime transition-colors tracking-wide uppercase">Contact</a>
+            </nav>
+
+            <!-- CTA + phone -->
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="tel:{{telefoon}}" class="text-sm text-brand-grey/70 hover:text-white transition-colors">
+                    <span class="inline-block mr-1.5">
+                        <svg class="inline w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    </span>
+                    {{telefoon}}
+                </a>
+                <a href="#contact" class="bg-brand-lime text-brand-black font-semibold text-sm px-6 py-2.5 hover:bg-brand-lime-dark transition-colors tracking-wide uppercase">
+                    Neem contact op
+                </a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button id="menu-toggle" class="lg:hidden relative w-8 h-8 flex flex-col justify-center items-center gap-1.5" aria-label="Menu">
+                <span class="menu-line block w-7 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                <span class="menu-line block w-5 h-0.5 bg-white transition-all duration-300 ml-auto"></span>
+                <span class="menu-line block w-7 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 bg-brand-black/98 flex flex-col justify-center items-center gap-6 lg:hidden">
+        <a href="#diensten" class="mobile-link font-heading text-4xl text-brand-grey hover:text-brand-lime transition-colors">Diensten</a>
+        <a href="#projecten" class="mobile-link font-heading text-4xl text-brand-grey hover:text-brand-lime transition-colors">Projecten</a>
+        <a href="#cijfers" class="mobile-link font-heading text-4xl text-brand-grey hover:text-brand-lime transition-colors">Cijfers</a>
+        <a href="#team" class="mobile-link font-heading text-4xl text-brand-grey hover:text-brand-lime transition-colors">Team</a>
+        <a href="#vacatures" class="mobile-link font-heading text-4xl text-brand-grey hover:text-brand-lime transition-colors">Vacatures</a>
+        <a href="#contact" class="mobile-link font-heading text-4xl text-brand-grey hover:text-brand-lime transition-colors">Contact</a>
+        <div class="mt-6">
+            <a href="tel:{{telefoon}}" class="text-brand-muted text-lg">{{telefoon}}</a>
+        </div>
+        <a href="#contact" class="mt-4 bg-brand-lime text-brand-black font-semibold px-8 py-3 text-sm uppercase tracking-wider">Neem contact op</a>
+    </div>
+
+
+    <!-- ============================================ -->
+    <!-- HERO                                         -->
+    <!-- ============================================ -->
+    <section class="angle-bottom relative min-h-screen flex items-center bg-brand-black overflow-hidden" style="padding-bottom: 12%;">
+        <!-- Background image placeholder -->
+        <div class="absolute inset-0 img-placeholder" style="background: linear-gradient(135deg, #141414 0%, #1a1a1a 40%, #1e1e1e 100%);">
+            <!-- Decorative grid lines -->
+            <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(200,230,46,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(200,230,46,0.3) 1px, transparent 1px); background-size: 80px 80px;"></div>
+            <!-- Image placeholder icon -->
+            <div class="absolute bottom-[20%] right-[5%] w-[55%] h-[70%] bg-brand-dark/40 flex items-center justify-center" style="clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);">
+                <svg class="w-20 h-20 opacity-10 text-brand-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+        </div>
+
+        <!-- Dark overlay gradient -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/85 to-transparent"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-16">
+            <div class="max-w-3xl">
+                <!-- Small tag -->
+                <div class="reveal inline-flex items-center gap-2 mb-6">
+                    <span class="w-8 h-px bg-brand-lime"></span>
+                    <span class="text-brand-lime text-sm font-medium uppercase tracking-[0.2em]">SC-530 & SC-540 gecertificeerd</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="reveal font-heading text-white leading-[0.95]" style="font-size: clamp(3.5rem, 8vw, 7rem); transition-delay: 0.1s;">
+                    Compleet sloop- &<br>milieuoplossingen
+                </h1>
+
+                <!-- Lime accent line -->
+                <div class="reveal w-24 h-1 bg-brand-lime mt-5 mb-7" style="transition-delay: 0.2s;"></div>
+
+                <!-- Tagline -->
+                <p class="reveal text-brand-grey/70 text-lg sm:text-xl max-w-xl leading-relaxed font-light" style="transition-delay: 0.3s;">
+                    Van asbestinventarisatie tot complete sloop en bodemsanering.
+                    {{bedrijfsnaam}} is uw totaalpartner voor veilige en effici&euml;nte milieuoplossingen in {{regio}}.
+                </p>
+
+                <!-- CTA buttons -->
+                <div class="reveal flex flex-wrap gap-4 mt-10" style="transition-delay: 0.4s;">
+                    <a href="#contact" class="bg-brand-lime text-brand-black font-semibold px-8 py-4 text-sm uppercase tracking-wider hover:bg-brand-lime-dark transition-colors inline-flex items-center gap-2">
+                        Offerte aanvragen
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="#diensten" class="border border-white/20 text-white font-medium px-8 py-4 text-sm uppercase tracking-wider hover:border-brand-lime hover:text-brand-lime transition-colors">
+                        Onze diensten
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-[16%] left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-50">
+            <span class="text-xs uppercase tracking-[0.25em] text-brand-grey/50">Scroll</span>
+            <div class="w-px h-10 bg-gradient-to-b from-brand-lime/60 to-transparent animate-pulse"></div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- DIENSTEN (Services with tabs)                -->
+    <!-- ============================================ -->
+    <section id="diensten" class="relative bg-brand-charcoal py-24 sm:py-32" style="margin-top: -6%;">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <!-- Section heading -->
+            <div class="reveal mb-14">
+                <span class="text-brand-lime text-sm font-medium uppercase tracking-[0.2em] block mb-3">Wat wij doen</span>
+                <h2 class="font-heading text-white text-5xl sm:text-6xl lg:text-7xl">Onze diensten</h2>
+            </div>
+
+            <!-- Tab buttons -->
+            <div class="reveal flex flex-wrap gap-1 sm:gap-0 border-b border-white/10 mb-10" style="transition-delay: 0.1s;">
+                <button class="tab-btn active text-sm sm:text-base font-medium text-brand-muted px-4 sm:px-6 py-3 uppercase tracking-wider transition-colors hover:text-brand-lime" data-tab="asbestsanering">
+                    Asbestsanering
+                </button>
+                <button class="tab-btn text-sm sm:text-base font-medium text-brand-muted px-4 sm:px-6 py-3 uppercase tracking-wider transition-colors hover:text-brand-lime" data-tab="sloopwerk">
+                    Sloopwerk
+                </button>
+                <button class="tab-btn text-sm sm:text-base font-medium text-brand-muted px-4 sm:px-6 py-3 uppercase tracking-wider transition-colors hover:text-brand-lime" data-tab="bodemsanering">
+                    Bodemsanering
+                </button>
+                <button class="tab-btn text-sm sm:text-base font-medium text-brand-muted px-4 sm:px-6 py-3 uppercase tracking-wider transition-colors hover:text-brand-lime" data-tab="inventarisatie">
+                    Inventarisatie
+                </button>
+            </div>
+
+            <!-- Tab: Asbestsanering -->
+            <div class="tab-panel active grid lg:grid-cols-2 gap-10 lg:gap-16 items-center" data-panel="asbestsanering">
+                <div class="reveal-left">
+                    <h3 class="font-heading text-white text-4xl sm:text-5xl mb-5">Asbestsanering</h3>
+                    <p class="text-brand-grey/70 leading-relaxed mb-6">
+                        Professionele verwijdering van alle soorten asbesthoudende materialen. Van dakplaten en leidingisolatie tot volledige gebouwsanering. Wij werken volgens de strengste veiligheidsprotocollen en beschikken over eigen containment-units en onderdrukinstallaties.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Dakplaten en golfplaten verwijderen
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Leidingisolatie en plaatmateriaal
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Volledige gebouwsanering (risicoklasse 1, 2 en 2A)
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Containment-bouw en onderdruk
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Afvoer en verwerking via erkende verwerkers
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal-right img-placeholder h-80 sm:h-96 lg:h-[28rem]" style="clip-path: polygon(0 0, 100% 4%, 100% 100%, 3% 96%);">
+                    <svg class="w-16 h-16 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 9v2m0 4h.01M3.41 20.64L12 3.36l8.59 17.28H3.41z"/></svg>
+                </div>
+            </div>
+
+            <!-- Tab: Sloopwerk -->
+            <div class="tab-panel grid lg:grid-cols-2 gap-10 lg:gap-16 items-center" data-panel="sloopwerk">
+                <div class="reveal-left">
+                    <h3 class="font-heading text-white text-4xl sm:text-5xl mb-5">Sloopwerk</h3>
+                    <p class="text-brand-grey/70 leading-relaxed mb-6">
+                        Totaalsloop van industriele complexen, kantoorpanden en woningen. Met ons eigen machinepark en ervaren operators pakken wij elk sloopproject aan. Van selectieve strip-sloop tot volledige demontage met maximale materiaalherwinning.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Industriele sloop en demontage
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Selectieve strip-sloop (interieur)
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Machinale sloop met eigen machinepark
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Grondwerk en terreinreiniging
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Circulair slopen en materiaalhergebruik
+                        </li>
+                    </ul>
+                </div>
+                <div class="img-placeholder h-80 sm:h-96 lg:h-[28rem]" style="clip-path: polygon(0 4%, 100% 0, 97% 96%, 0 100%);">
+                    <svg class="w-16 h-16 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+            </div>
+
+            <!-- Tab: Bodemsanering -->
+            <div class="tab-panel grid lg:grid-cols-2 gap-10 lg:gap-16 items-center" data-panel="bodemsanering">
+                <div class="reveal-left">
+                    <h3 class="font-heading text-white text-4xl sm:text-5xl mb-5">Bodemsanering</h3>
+                    <p class="text-brand-grey/70 leading-relaxed mb-6">
+                        Sanering van verontreinigde grond en grondwater. Wij begeleiden het volledige traject: van onderzoek en saneringsplan tot uitvoering en nazorg. Erkend voor zowel in-situ als ex-situ saneringen.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Ontgraven en afvoeren verontreinigde grond
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            In-situ sanering (biologisch, chemisch)
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Grondwateronttrekking en -zuivering
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Saneringsplannen en BUS-meldingen
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Nazorg en monitoring
+                        </li>
+                    </ul>
+                </div>
+                <div class="img-placeholder h-80 sm:h-96 lg:h-[28rem]" style="clip-path: polygon(0 0, 100% 4%, 100% 100%, 3% 96%);">
+                    <svg class="w-16 h-16 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+            </div>
+
+            <!-- Tab: Inventarisatie -->
+            <div class="tab-panel grid lg:grid-cols-2 gap-10 lg:gap-16 items-center" data-panel="inventarisatie">
+                <div class="reveal-left">
+                    <h3 class="font-heading text-white text-4xl sm:text-5xl mb-5">Asbestinventarisatie</h3>
+                    <p class="text-brand-grey/70 leading-relaxed mb-6">
+                        SC-540 gecertificeerde inventarisaties door onze eigen DIA-gekwalificeerde inspecteurs. Van visuele inspectie en monstername tot volledig rapport met risicoklasse-indeling. Onafhankelijk, betrouwbaar en snel.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Type A inventarisatie (standaard)
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Type B inventarisatie (destructief onderzoek)
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Risicoanalyse en adviesrapport
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            NEN 2991 risicobeoordeling
+                        </li>
+                        <li class="flex items-start gap-3 text-brand-grey/80">
+                            <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 shrink-0"></span>
+                            Sloopmelding voorbereiding
+                        </li>
+                    </ul>
+                </div>
+                <div class="img-placeholder h-80 sm:h-96 lg:h-[28rem]" style="clip-path: polygon(0 4%, 100% 0, 97% 96%, 0 100%);">
+                    <svg class="w-16 h-16 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- CIJFERS (Numbers/Stats)                      -->
+    <!-- ============================================ -->
+    <section id="cijfers" class="angle-both relative bg-brand-lime py-32 sm:py-40" style="margin-top: -3%;">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
+                <!-- Stat 1 -->
+                <div class="reveal text-center lg:text-left lg:pt-0">
+                    <div class="counter-num" data-target="25">0</div>
+                    <div class="text-brand-black/80 font-heading text-2xl sm:text-3xl tracking-wide">+ Jaar</div>
+                    <div class="text-brand-black/50 text-sm mt-1 font-medium uppercase tracking-wider">Ervaring</div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="reveal text-center lg:text-left lg:pt-8" style="transition-delay: 0.1s;">
+                    <div class="counter-num" data-target="500">0</div>
+                    <div class="text-brand-black/80 font-heading text-2xl sm:text-3xl tracking-wide">+ Projecten</div>
+                    <div class="text-brand-black/50 text-sm mt-1 font-medium uppercase tracking-wider">Afgerond</div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="reveal text-center lg:text-left lg:pt-3" style="transition-delay: 0.2s;">
+                    <div class="counter-num" data-target="{{medewerkers}}">0</div>
+                    <div class="text-brand-black/80 font-heading text-2xl sm:text-3xl tracking-wide">Medewerkers</div>
+                    <div class="text-brand-black/50 text-sm mt-1 font-medium uppercase tracking-wider">Vakmensen</div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="reveal text-center lg:text-left lg:pt-10" style="transition-delay: 0.3s;">
+                    <div class="counter-num text-brand-black" style="font-size: clamp(2.5rem, 6vw, 5rem);">SC-530<br>&amp; SC-540</div>
+                    <div class="text-brand-black/50 text-sm mt-2 font-medium uppercase tracking-wider">Gecertificeerd</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- PROJECTEN (Case studies)                     -->
+    <!-- ============================================ -->
+    <section id="projecten" class="relative bg-brand-black py-24 sm:py-32" style="margin-top: -5%;">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <!-- Section heading -->
+            <div class="reveal mb-14">
+                <span class="text-brand-lime text-sm font-medium uppercase tracking-[0.2em] block mb-3">Ons werk</span>
+                <h2 class="font-heading text-white text-5xl sm:text-6xl lg:text-7xl">Recente projecten</h2>
+            </div>
+
+            <!-- Project grid - bento style -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+                <!-- Project 1 - Large -->
+                <div class="reveal project-card md:col-span-7 relative group cursor-pointer" style="transition-delay: 0.05s;">
+                    <div class="img-placeholder h-80 sm:h-96 md:h-[28rem]" style="clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);">
+                        <svg class="w-16 h-16 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <div class="overlay absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent flex flex-col justify-end p-6 sm:p-8">
+                        <span class="inline-block bg-brand-lime text-brand-black text-xs font-semibold uppercase tracking-wider px-3 py-1 mb-3 w-fit">Totaalsloop</span>
+                        <h3 class="font-heading text-white text-3xl sm:text-4xl mb-2">Voormalig fabriekscomplex</h3>
+                        <p class="text-brand-grey/60 text-sm max-w-md">Complete sloop van 12.000m2 industrieel complex inclusief asbestsanering en bodemonderzoek.</p>
+                        <span class="text-brand-muted text-xs mt-3 uppercase tracking-wider">{{stad}} / 2024</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 + 3 stacked -->
+                <div class="md:col-span-5 flex flex-col gap-5">
+                    <!-- Project 2 -->
+                    <div class="reveal project-card relative group cursor-pointer flex-1" style="transition-delay: 0.15s;">
+                        <div class="img-placeholder h-56 sm:h-64 md:h-full min-h-[13rem]">
+                            <svg class="w-12 h-12 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 9v2m0 4h.01M3.41 20.64L12 3.36l8.59 17.28H3.41z"/></svg>
+                        </div>
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent flex flex-col justify-end p-6">
+                            <span class="inline-block bg-brand-lime text-brand-black text-xs font-semibold uppercase tracking-wider px-3 py-1 mb-3 w-fit">Asbestsanering</span>
+                            <h3 class="font-heading text-white text-2xl sm:text-3xl mb-1">Schoolgebouw renovatie</h3>
+                            <p class="text-brand-grey/60 text-sm">Volledige asbestverwijdering voorafgaand aan renovatie. 45 klaslokalen in 6 weken.</p>
+                            <span class="text-brand-muted text-xs mt-2 uppercase tracking-wider">{{regio}} / 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="reveal project-card relative group cursor-pointer flex-1" style="transition-delay: 0.25s;">
+                        <div class="img-placeholder h-56 sm:h-64 md:h-full min-h-[13rem]">
+                            <svg class="w-12 h-12 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/30 to-transparent flex flex-col justify-end p-6">
+                            <span class="inline-block bg-brand-lime text-brand-black text-xs font-semibold uppercase tracking-wider px-3 py-1 mb-3 w-fit">Bodemsanering</span>
+                            <h3 class="font-heading text-white text-2xl sm:text-3xl mb-1">Voormalig tankstation</h3>
+                            <p class="text-brand-grey/60 text-sm">Bodem- en grondwatersanering op locatie met zware verontreiniging.</p>
+                            <span class="text-brand-muted text-xs mt-2 uppercase tracking-wider">{{regio}} / 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View all link -->
+            <div class="reveal mt-10 text-right">
+                <a href="#" class="inline-flex items-center gap-2 text-brand-lime text-sm font-medium uppercase tracking-wider hover:gap-4 transition-all">
+                    Bekijk alle projecten
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- CERTIFICERINGEN                              -->
+    <!-- ============================================ -->
+    <section class="relative bg-brand-charcoal py-16 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="reveal flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-px bg-brand-lime"></div>
+                    <h3 class="font-heading text-white text-2xl sm:text-3xl tracking-wide">Certificeringen & erkenningen</h3>
+                </div>
+                <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+                    <!-- SC-530 -->
+                    <div class="flex items-center gap-3 bg-brand-dark/60 px-5 py-3 border border-white/5">
+                        <div class="w-10 h-10 bg-brand-lime/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-brand-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-semibold">SC-530</div>
+                            <div class="text-brand-muted text-xs">{{certificeringen}}</div>
+                        </div>
+                    </div>
+
+                    <!-- SC-540 -->
+                    <div class="flex items-center gap-3 bg-brand-dark/60 px-5 py-3 border border-white/5">
+                        <div class="w-10 h-10 bg-brand-lime/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-brand-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-semibold">SC-540</div>
+                            <div class="text-brand-muted text-xs">Inventarisatie</div>
+                        </div>
+                    </div>
+
+                    <!-- VCA** -->
+                    <div class="flex items-center gap-3 bg-brand-dark/60 px-5 py-3 border border-white/5">
+                        <div class="w-10 h-10 bg-brand-lime/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-brand-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-semibold">VCA**</div>
+                            <div class="text-brand-muted text-xs">Veiligheid</div>
+                        </div>
+                    </div>
+
+                    <!-- ISO -->
+                    <div class="flex items-center gap-3 bg-brand-dark/60 px-5 py-3 border border-white/5">
+                        <div class="w-10 h-10 bg-brand-lime/10 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-brand-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-semibold">ISO 9001</div>
+                            <div class="text-brand-muted text-xs">Kwaliteit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- TEAM                                         -->
+    <!-- ============================================ -->
+    <section id="team" class="relative bg-brand-charcoal py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
+                <!-- Left: text -->
+                <div class="lg:col-span-4 reveal">
+                    <span class="text-brand-lime text-sm font-medium uppercase tracking-[0.2em] block mb-3">De mensen</span>
+                    <h2 class="font-heading text-white text-5xl sm:text-6xl mb-6">Ons team</h2>
+                    <p class="text-brand-grey/60 leading-relaxed mb-6">
+                        Achter elk project staat een team van ervaren vakmensen. Van DTA-gecertificeerde uitvoerders tot DIA-gekwalificeerde inspecteurs en machinisten met jaren ervaring in sloop en sanering.
+                    </p>
+                    <p class="text-brand-grey/60 leading-relaxed">
+                        Veiligheid staat altijd voorop. Onze medewerkers worden continu bijgeschoold en werken volgens de nieuwste protocollen en regelgeving.
+                    </p>
+                </div>
+
+                <!-- Right: team grid -->
+                <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-6 stagger">
+                    <!-- Member 1 -->
+                    <div class="reveal" style="--i: 0;">
+                        <div class="img-placeholder w-full aspect-[3/4] mb-4">
+                            <svg class="w-10 h-10 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        </div>
+                        <h4 class="text-white font-semibold text-sm">Directeur</h4>
+                        <p class="text-brand-muted text-xs mt-0.5">Algemeen directeur</p>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="reveal" style="--i: 1;">
+                        <div class="img-placeholder w-full aspect-[3/4] mb-4">
+                            <svg class="w-10 h-10 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        </div>
+                        <h4 class="text-white font-semibold text-sm">Projectleider</h4>
+                        <p class="text-brand-muted text-xs mt-0.5">Sloop & sanering</p>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="reveal" style="--i: 2;">
+                        <div class="img-placeholder w-full aspect-[3/4] mb-4">
+                            <svg class="w-10 h-10 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        </div>
+                        <h4 class="text-white font-semibold text-sm">DIA Inspecteur</h4>
+                        <p class="text-brand-muted text-xs mt-0.5">Asbestinventarisatie</p>
+                    </div>
+
+                    <!-- Member 4 -->
+                    <div class="reveal" style="--i: 3;">
+                        <div class="img-placeholder w-full aspect-[3/4] mb-4">
+                            <svg class="w-10 h-10 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        </div>
+                        <h4 class="text-white font-semibold text-sm">KAM Co&ouml;rdinator</h4>
+                        <p class="text-brand-muted text-xs mt-0.5">Kwaliteit, arbo & milieu</p>
+                    </div>
+
+                    <!-- Member 5 -->
+                    <div class="reveal" style="--i: 4;">
+                        <div class="img-placeholder w-full aspect-[3/4] mb-4">
+                            <svg class="w-10 h-10 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        </div>
+                        <h4 class="text-white font-semibold text-sm">Hoofdmachinist</h4>
+                        <p class="text-brand-muted text-xs mt-0.5">Sloopwerk</p>
+                    </div>
+
+                    <!-- Member 6 -->
+                    <div class="reveal" style="--i: 5;">
+                        <div class="img-placeholder w-full aspect-[3/4] mb-4">
+                            <svg class="w-10 h-10 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        </div>
+                        <h4 class="text-white font-semibold text-sm">Uitvoerder</h4>
+                        <p class="text-brand-muted text-xs mt-0.5">Asbestsanering (DTA)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- VACATURES                                    -->
+    <!-- ============================================ -->
+    <section id="vacatures" class="relative bg-brand-black py-24 sm:py-28 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Left -->
+                <div class="lg:col-span-5 reveal">
+                    <span class="text-brand-lime text-sm font-medium uppercase tracking-[0.2em] block mb-3">Carriere</span>
+                    <h2 class="font-heading text-white text-5xl sm:text-6xl mb-5">Werken bij<br>{{bedrijfsnaam}}</h2>
+                    <p class="text-brand-grey/60 leading-relaxed">
+                        Wij groeien en zoeken vakmensen die het verschil willen maken. Bij ons werk je met het nieuwste materieel aan uitdagende projecten in heel {{regio}}.
+                    </p>
+                </div>
+
+                <!-- Right: job listings -->
+                <div class="lg:col-span-7 space-y-4">
+                    <!-- Job 1 -->
+                    <div class="reveal job-card bg-brand-charcoal p-6 sm:p-7 border-l-3 transition-all" style="transition-delay: 0.05s;">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">Allround sloper / saneerder</h4>
+                                <div class="flex flex-wrap items-center gap-3 mt-2 text-brand-muted text-sm">
+                                    <span>Fulltime</span>
+                                    <span class="w-1 h-1 bg-brand-muted/50 rounded-full"></span>
+                                    <span>{{stad}}</span>
+                                    <span class="w-1 h-1 bg-brand-muted/50 rounded-full"></span>
+                                    <span>MBO+</span>
+                                </div>
+                            </div>
+                            <a href="#contact" class="shrink-0 bg-brand-lime text-brand-black font-semibold text-sm px-5 py-2.5 hover:bg-brand-lime-dark transition-colors uppercase tracking-wider text-center">
+                                Solliciteer
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="reveal job-card bg-brand-charcoal p-6 sm:p-7 border-l-3 transition-all" style="transition-delay: 0.15s;">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">Machinist (graafmachine)</h4>
+                                <div class="flex flex-wrap items-center gap-3 mt-2 text-brand-muted text-sm">
+                                    <span>Fulltime</span>
+                                    <span class="w-1 h-1 bg-brand-muted/50 rounded-full"></span>
+                                    <span>{{stad}}</span>
+                                    <span class="w-1 h-1 bg-brand-muted/50 rounded-full"></span>
+                                    <span>Ervaren</span>
+                                </div>
+                            </div>
+                            <a href="#contact" class="shrink-0 bg-brand-lime text-brand-black font-semibold text-sm px-5 py-2.5 hover:bg-brand-lime-dark transition-colors uppercase tracking-wider text-center">
+                                Solliciteer
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="reveal job-card bg-brand-charcoal p-6 sm:p-7 border-l-3 transition-all" style="transition-delay: 0.25s;">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <h4 class="text-white font-semibold text-lg">Projectleider sloop & sanering</h4>
+                                <div class="flex flex-wrap items-center gap-3 mt-2 text-brand-muted text-sm">
+                                    <span>Fulltime</span>
+                                    <span class="w-1 h-1 bg-brand-muted/50 rounded-full"></span>
+                                    <span>{{stad}}</span>
+                                    <span class="w-1 h-1 bg-brand-muted/50 rounded-full"></span>
+                                    <span>HBO</span>
+                                </div>
+                            </div>
+                            <a href="#contact" class="shrink-0 bg-brand-lime text-brand-black font-semibold text-sm px-5 py-2.5 hover:bg-brand-lime-dark transition-colors uppercase tracking-wider text-center">
+                                Solliciteer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- CONTACT                                      -->
+    <!-- ============================================ -->
+    <section id="contact" class="relative bg-brand-charcoal py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="reveal mb-14">
+                <span class="text-brand-lime text-sm font-medium uppercase tracking-[0.2em] block mb-3">Neem contact op</span>
+                <h2 class="font-heading text-white text-5xl sm:text-6xl lg:text-7xl">Aan de slag</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
+                <!-- Left: company details -->
+                <div class="lg:col-span-5 reveal-left">
+                    <div class="space-y-8">
+                        <!-- Address -->
+                        <div>
+                            <h4 class="text-brand-lime text-xs font-semibold uppercase tracking-[0.2em] mb-3">Adres</h4>
+                            <p class="text-brand-grey/80 leading-relaxed">
+                                {{bedrijfsnaam}}<br>
+                                {{straat}}<br>
+                                {{postcode}} {{stad}}
+                            </p>
+                        </div>
+
+                        <!-- Contact info -->
+                        <div>
+                            <h4 class="text-brand-lime text-xs font-semibold uppercase tracking-[0.2em] mb-3">Contact</h4>
+                            <div class="space-y-2">
+                                <a href="tel:{{telefoon}}" class="block text-brand-grey/80 hover:text-brand-lime transition-colors">
+                                    T: {{telefoon}}
+                                </a>
+                                <a href="mailto:{{email}}" class="block text-brand-grey/80 hover:text-brand-lime transition-colors">
+                                    E: {{email}}
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- KVK -->
+                        <div>
+                            <h4 class="text-brand-lime text-xs font-semibold uppercase tracking-[0.2em] mb-3">Bedrijfsgegevens</h4>
+                            <p class="text-brand-grey/60 text-sm">
+                                KVK: {{kvk_nummer}}<br>
+                                BTW: {{btw_nummer}}
+                            </p>
+                        </div>
+
+                        <!-- Opening hours -->
+                        <div>
+                            <h4 class="text-brand-lime text-xs font-semibold uppercase tracking-[0.2em] mb-3">Bereikbaarheid</h4>
+                            <div class="text-brand-grey/60 text-sm space-y-1">
+                                <div class="flex justify-between max-w-xs">
+                                    <span>Maandag - vrijdag</span>
+                                    <span class="text-brand-grey/80">07:00 - 17:00</span>
+                                </div>
+                                <div class="flex justify-between max-w-xs">
+                                    <span>Zaterdag - zondag</span>
+                                    <span class="text-brand-grey/80">Gesloten</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: contact form -->
+                <div class="lg:col-span-7 reveal-right">
+                    <form class="space-y-5" onsubmit="return false;">
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-brand-grey/60 text-xs uppercase tracking-wider mb-2 font-medium">Naam *</label>
+                                <input type="text" class="form-input" placeholder="Uw volledige naam" required>
+                            </div>
+                            <div>
+                                <label class="block text-brand-grey/60 text-xs uppercase tracking-wider mb-2 font-medium">Bedrijf</label>
+                                <input type="text" class="form-input" placeholder="Bedrijfsnaam">
+                            </div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-brand-grey/60 text-xs uppercase tracking-wider mb-2 font-medium">E-mail *</label>
+                                <input type="email" class="form-input" placeholder="uw@email.nl" required>
+                            </div>
+                            <div>
+                                <label class="block text-brand-grey/60 text-xs uppercase tracking-wider mb-2 font-medium">Telefoon</label>
+                                <input type="tel" class="form-input" placeholder="06 - 12345678">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-brand-grey/60 text-xs uppercase tracking-wider mb-2 font-medium">Type project</label>
+                            <select class="form-input" style="appearance: none; cursor: pointer;">
+                                <option value="">Selecteer...</option>
+                                <option value="asbestsanering">Asbestsanering</option>
+                                <option value="sloopwerk">Sloopwerk</option>
+                                <option value="bodemsanering">Bodemsanering</option>
+                                <option value="inventarisatie">Asbestinventarisatie</option>
+                                <option value="combinatie">Combinatieproject</option>
+                                <option value="anders">Anders</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-brand-grey/60 text-xs uppercase tracking-wider mb-2 font-medium">Bericht *</label>
+                            <textarea class="form-input" rows="5" placeholder="Omschrijf kort uw project en wensen..." required></textarea>
+                        </div>
+                        <div class="pt-2">
+                            <button type="submit" class="bg-brand-lime text-brand-black font-semibold px-10 py-4 text-sm uppercase tracking-wider hover:bg-brand-lime-dark transition-colors inline-flex items-center gap-3">
+                                Verstuur bericht
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map placeholder -->
+            <div class="reveal img-placeholder h-64 sm:h-80 mt-16" style="transition-delay: 0.1s;">
+                <div class="text-center">
+                    <svg class="w-12 h-12 opacity-15 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span class="text-brand-muted/30 text-xs uppercase tracking-wider">Kaart / Google Maps</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer class="angle-top relative bg-brand-black pt-24 pb-10" style="margin-top: -3%;">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16 pt-8">
+                <!-- Col 1: Company -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="font-heading text-2xl text-white mb-4">{{bedrijfsnaam}}</div>
+                    <p class="text-brand-muted text-sm leading-relaxed mb-4">
+                        {{beschrijving}}
+                    </p>
+                    <div class="flex gap-3">
+                        <!-- Social placeholders -->
+                        <a href="#" class="w-9 h-9 bg-brand-dark flex items-center justify-center hover:bg-brand-lime/20 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-4 h-4 text-brand-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="w-9 h-9 bg-brand-dark flex items-center justify-center hover:bg-brand-lime/20 transition-colors" aria-label="Facebook">
+                            <svg class="w-4 h-4 text-brand-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-9 h-9 bg-brand-dark flex items-center justify-center hover:bg-brand-lime/20 transition-colors" aria-label="Instagram">
+                            <svg class="w-4 h-4 text-brand-muted" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Diensten -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Diensten</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#diensten" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Asbestsanering</a></li>
+                        <li><a href="#diensten" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Sloopwerk</a></li>
+                        <li><a href="#diensten" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Bodemsanering</a></li>
+                        <li><a href="#diensten" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Inventarisatie</a></li>
+                        <li><a href="#diensten" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Grondwerk</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Bedrijf -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Bedrijf</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#projecten" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Projecten</a></li>
+                        <li><a href="#team" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Team</a></li>
+                        <li><a href="#vacatures" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Vacatures</a></li>
+                        <li><a href="#cijfers" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Over ons</a></li>
+                        <li><a href="#contact" class="text-brand-muted text-sm hover:text-brand-lime transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Certificeringen -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Certificeringen</h4>
+                    <ul class="space-y-2.5">
+                        <li class="text-brand-muted text-sm">SC-530 Asbestverwijdering</li>
+                        <li class="text-brand-muted text-sm">SC-540 Inventarisatie</li>
+                        <li class="text-brand-muted text-sm">VCA** Petrochemie</li>
+                        <li class="text-brand-muted text-sm">ISO 9001</li>
+                        <li class="text-brand-muted text-sm">ISO 14001</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-brand-muted/60 text-xs">
+                    &copy; 2024 {{bedrijfsnaam}}. Alle rechten voorbehouden. KVK: {{kvk_nummer}}
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-brand-muted/60 text-xs hover:text-brand-lime transition-colors">Privacy</a>
+                    <a href="#" class="text-brand-muted/60 text-xs hover:text-brand-lime transition-colors">Voorwaarden</a>
+                    <a href="#" class="text-brand-muted/60 text-xs hover:text-brand-lime transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT                                   -->
+    <!-- ============================================ -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ---- Header scroll effect ----
+        const header = document.getElementById('site-header');
+        let lastScroll = 0;
+
+        function updateHeader() {
+            const scrollY = window.scrollY;
+            if (scrollY > 80) {
+                header.style.background = 'rgba(20, 20, 20, 0.95)';
+                header.style.backdropFilter = 'blur(12px)';
+                header.style.boxShadow = '0 1px 0 rgba(255,255,255,0.05)';
+            } else {
+                header.style.background = 'transparent';
+                header.style.backdropFilter = 'none';
+                header.style.boxShadow = 'none';
+            }
+            lastScroll = scrollY;
+        }
+        window.addEventListener('scroll', updateHeader, { passive: true });
+
+
+        // ---- Mobile menu ----
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLines = menuToggle.querySelectorAll('.menu-line');
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', function() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.add('open');
+                menuLines[0].style.transform = 'rotate(45deg) translateY(4px)';
+                menuLines[1].style.opacity = '0';
+                menuLines[2].style.transform = 'rotate(-45deg) translateY(-4px)';
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('open');
+                menuLines[0].style.transform = '';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = '';
+                document.body.style.overflow = '';
+            }
+        });
+
+        mobileLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                menuOpen = false;
+                mobileMenu.classList.remove('open');
+                menuLines[0].style.transform = '';
+                menuLines[1].style.opacity = '1';
+                menuLines[2].style.transform = '';
+                document.body.style.overflow = '';
+            });
+        });
+
+
+        // ---- Tab switching ----
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var tabId = this.getAttribute('data-tab');
+
+                tabBtns.forEach(function(b) { b.classList.remove('active'); });
+                tabPanels.forEach(function(p) { p.classList.remove('active'); });
+
+                this.classList.add('active');
+                var targetPanel = document.querySelector('[data-panel="' + tabId + '"]');
+                if (targetPanel) targetPanel.classList.add('active');
+            });
+        });
+
+
+        // ---- Scroll reveal (IntersectionObserver) ----
+        var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+        if ('IntersectionObserver' in window) {
+            var revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(function(el) {
+                revealObserver.observe(el);
+            });
+        } else {
+            // Fallback: show everything
+            revealElements.forEach(function(el) {
+                el.classList.add('visible');
+            });
+        }
+
+
+        // ---- Counter animation ----
+        var counterElements = document.querySelectorAll('.counter-num');
+
+        function animateCounter(el) {
+            var targetText = el.getAttribute('data-target');
+            if (!targetText) return;
+
+            // Handle non-numeric targets (like SC-530 text)
+            var target = parseInt(targetText, 10);
+            if (isNaN(target)) return;
+
+            var duration = 2000;
+            var startTime = null;
+
+            function easeOutQuart(t) {
+                return 1 - Math.pow(1 - t, 4);
+            }
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var easedProgress = easeOutQuart(progress);
+                var current = Math.floor(easedProgress * target);
+                el.textContent = current;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    el.textContent = target;
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        if ('IntersectionObserver' in window) {
+            var counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            counterElements.forEach(function(el) {
+                counterObserver.observe(el);
+            });
+        }
+
+
+        // ---- Smooth scroll for anchor links ----
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                var targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    var headerHeight = 80;
+                    var targetPos = targetEl.getBoundingClientRect().top + window.scrollY - headerHeight;
+                    window.scrollTo({
+                        top: targetPos,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    })();
+    </script>
+
+</body>
+</html>
