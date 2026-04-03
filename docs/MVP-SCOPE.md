@@ -1,4 +1,4 @@
-# MVP Scope — asbestvergelijken.nl
+# MVP Scope — olietankverwijderen.nl
 
 ## Doel MVP
 
@@ -12,7 +12,7 @@ Een werkende site met voldoende content om organisch traffic te genereren en de 
 ## v1 Features (Must Have)
 
 ### 1. Bedrijvenoverzicht
-- Lijst van asbestverwijderingsbedrijven, filterbaar op provincie/stad
+- Lijst van olietankverwijderingsbedrijven, filterbaar op provincie/stad
 - Per bedrijf: naam, locatie, certificering(en), korte beschrijving, rating
 - Sortering op: afstand (postcode), rating, naam
 - Pagination
@@ -20,7 +20,7 @@ Een werkende site met voldoende content om organisch traffic te genereren en de 
 ### 2. Bedrijfsprofiel pagina's
 - Individuele pagina per bedrijf met:
   - Bedrijfsnaam, adres, contact
-  - Certificeringen met badge (SC-530/SC-540)
+  - Certificeringen met badge (BRL K902/K904, SIKB-7000)
   - Specialisaties
   - Werkgebied
   - Beschrijving
@@ -29,13 +29,13 @@ Een werkende site met voldoende content om organisch traffic te genereren en de 
 - Schema.org LocalBusiness structured data
 
 ### 3. Lokale landing pages (top 20 steden)
-- "Asbestverwijdering [stad]" pagina's voor de 20 grootste steden
+- "Olietankverwijdering [stad]" pagina's voor de 20 grootste steden
 - Per pagina: intro, lokale bedrijven, prijsindicatie, gemeentelijke info
 - Steden eerste batch:
   Amsterdam, Rotterdam, Den Haag, Utrecht, Eindhoven, Groningen, Tilburg, Almere, Breda, Nijmegen, Arnhem, Haarlem, Amersfoort, Apeldoorn, Zoetermeer, 's-Hertogenbosch, Zwolle, Leiden, Maastricht, Enschede
 
 ### 4. Offerte-aanvraagformulier
-- Simpel formulier: naam, email, telefoon, postcode, type dienst, oppervlakte, toelichting
+- Simpel formulier: naam, email, telefoon, postcode, type dienst, tankgrootte, toelichting
 - Validatie (Zod)
 - Opslag in Supabase leads tabel
 - Bevestigingsmail naar aanvrager (Resend)
@@ -43,11 +43,11 @@ Een werkende site met voldoende content om organisch traffic te genereren en de 
 - **Nog GEEN automatische doorstuur naar bedrijven** — eerst handmatig matchen
 
 ### 5. Kennisbank (5 pillar articles)
-- "Wat kost asbest verwijderen?" — uitgebreide prijsgids
-- "Asbestinventarisatie: alles wat je moet weten"
-- "Asbest herkennen: complete gids"
-- "Zelf asbest verwijderen: wanneer mag het?"
-- "Risicoklassen asbest uitgelegd"
+- "Wat kost olietank verwijderen?" — uitgebreide prijsgids
+- "Olietank saneren: alles wat je moet weten"
+- "Olietank in de tuin: herkennen en melden"
+- "Bodemonderzoek bij olietank: wanneer verplicht?"
+- "BRL K902 en SIKB-7000: certificeringen uitgelegd"
 - MDX format, internal links naar bedrijven en lokale pagina's
 
 ### 6. Homepage
@@ -84,7 +84,7 @@ Een werkende site met voldoende content om organisch traffic te genereren en de 
 |---|---|
 | Bedrijfsdashboard | Eerst handmatig claimen, dashboard als er 10+ claimed listings zijn |
 | Betalingsintegratie (Mollie) | Eerst gratis leads aanbieden om bedrijven te overtuigen, dan pas factureren |
-| Asbestwijzer tool | Mooi maar niet essentieel voor SEO/traffic |
+| Tankpeiler / detectie tool | Mooi maar niet essentieel voor SEO/traffic |
 | Reviews verzamelen | Eerst handmatig een paar reviews toevoegen, formulier later |
 | Automatische lead-matching | Eerst handmatig matchen, patronen leren, dan automatiseren |
 | n8n workflows | Eerst alles handmatig, dan automatiseren wat bewezen werkt |
@@ -98,10 +98,10 @@ Een werkende site met voldoende content om organisch traffic te genereren en de 
 ## Data voor Launch
 
 ### Bedrijven: minimaal 50, doel 100
-- Bron: Ascert register
+- Bron: RWS KWALIBO register, SIKB register
 - Verrijkt met: KvK data, Google Maps (locatie, reviews), website
 - AI-gegenereerde beschrijvingen (uniek per bedrijf!)
-- Certificeringen geverifieerd tegen Ascert
+- Certificeringen geverifieerd tegen KWALIBO/SIKB
 
 ### Content: 25 pagina's
 - 20 stad-pagina's
@@ -115,7 +115,7 @@ Een werkende site met voldoende content om organisch traffic te genereren en de 
 
 ## Launch Checklist
 
-- [ ] Domein asbestvergelijken.nl geregistreerd en DNS naar Netlify
+- [ ] Domein olietankverwijderen.nl geregistreerd en DNS naar Netlify
 - [ ] Supabase project aangemaakt, schema deployed
 - [ ] 50+ bedrijven geïmporteerd en geverifieerd
 - [ ] 20 stad-pagina's live met unieke content

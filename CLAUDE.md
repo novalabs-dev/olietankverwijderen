@@ -4,7 +4,7 @@
 
 ## Project
 
-Je bouwt **asbestvergelijken.nl** — een directory website voor asbestverwijdering in Nederland. Het doel is lead generation: consumenten helpen de juiste gecertificeerde asbestverwijderaar te vinden.
+Je bouwt **olietankverwijderen.nl** — een directory website voor olietankverwijdering in Nederland. Het doel is lead generation: consumenten helpen het juiste olietankverwijderingsbedrijf te vinden.
 
 ## Tech Stack
 
@@ -15,6 +15,22 @@ Je bouwt **asbestvergelijken.nl** — een directory website voor asbestverwijder
 - **Resend** (transactionele e-mails)
 - **Zod** (validatie)
 - **MDX** (kennisbank content)
+- **Playwright** (web scraping via Python)
+
+## Python Venv (Scraping)
+
+De `.venv/` directory bevat een Python virtual environment voor scraping scripts.
+
+**Activeren:** `.venv/bin/python` of `source .venv/bin/activate`
+
+**Geïnstalleerde packages:** playwright (1.58.0) + browsers (Chromium, Firefox, WebKit)
+
+**Scraping scripts:** zie `scripts/` directory (bijv. `scrape-websites.py`, `enrich-from-websites.py`)
+
+**Belangrijk:** Draai Python scraping scripts altijd via de venv:
+```bash
+.venv/bin/python scripts/scrape-websites.py
+```
 
 ## Projectdocumenten
 

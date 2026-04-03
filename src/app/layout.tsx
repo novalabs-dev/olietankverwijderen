@@ -49,16 +49,20 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-JLXC17PSPT"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
+        {process.env.NEXT_PUBLIC_GA4_ID && (
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
+            strategy="afterInteractive"
+          />
+        )}
+        {process.env.NEXT_PUBLIC_GA4_ID && (
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-JLXC17PSPT');`}
-        </Script>
+gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}');`}
+          </Script>
+        )}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
