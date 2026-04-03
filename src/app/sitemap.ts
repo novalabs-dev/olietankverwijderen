@@ -44,6 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         .from("bedrijven")
         .select("slug, updated_at")
         .eq("is_published", true)
+        .eq("niche", "olietank")
     : { data: null };
   const bedrijven = bedrijvenResult.data;
 

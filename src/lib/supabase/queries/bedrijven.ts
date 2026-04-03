@@ -57,7 +57,8 @@ export async function getBedrijven(
     `,
       { count: "exact" },
     )
-    .eq("is_published", true);
+    .eq("is_published", true)
+    .eq("niche", "olietank");
 
   // Apply filters
   if (filters?.provincie) {
@@ -110,7 +111,8 @@ export async function getProvinciesMetBedrijven(): Promise<string[]> {
   const { data } = await supabase
     .from("bedrijven")
     .select("provincie")
-    .eq("is_published", true);
+    .eq("is_published", true)
+    .eq("niche", "olietank");
 
   if (!data) return [];
 
@@ -146,6 +148,7 @@ export async function getBedrijfBySlug(
     )
     .eq("slug", slug)
     .eq("is_published", true)
+    .eq("niche", "olietank")
     .single();
 
   if (error) {
@@ -169,7 +172,8 @@ export async function getBedrijfSlugs(): Promise<string[]> {
   const { data, error } = await supabase
     .from("bedrijven")
     .select("slug")
-    .eq("is_published", true);
+    .eq("is_published", true)
+    .eq("niche", "olietank");
 
   if (error) {
     console.error("Error fetching slugs:", error);
