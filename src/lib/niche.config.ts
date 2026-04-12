@@ -26,6 +26,9 @@ export const nicheConfig = {
     "olietank laten verwijderen"
   ],
 
+  // Analytics
+  ga4Id: "G-E0FC6583H6",
+
   // Certificeringen
   certificeringen: [
     { code: "BRL-7000", naam: "BRL SIKB 7000 - Uitvoering van (water)bodemsaneringen" }
