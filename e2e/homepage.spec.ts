@@ -8,11 +8,11 @@ test.describe("Homepage", () => {
   test("renders the hero section with H1", async ({ page }) => {
     const h1 = page.locator("h1");
     await expect(h1).toBeVisible();
-    await expect(h1).toContainText("asbestverwijderaars");
+    await expect(h1).toContainText("olietankverwijderaars");
   });
 
   test("has correct page title", async ({ page }) => {
-    await expect(page).toHaveTitle(/Asbestvergelijken/);
+    await expect(page).toHaveTitle(/Olietankverwijderen/);
   });
 
   test("renders header with navigation links", async ({ page }) => {
@@ -26,7 +26,7 @@ test.describe("Homepage", () => {
   test("renders footer with navigation", async ({ page }) => {
     const footer = page.locator("footer");
     await expect(footer).toBeVisible();
-    await expect(footer).toContainText("Asbestvergelijken.nl");
+    await expect(footer).toContainText("Olietankverwijderen.nl");
     await expect(footer.getByRole("link", { name: /bedrijven/i })).toBeVisible();
     await expect(footer.getByRole("link", { name: /kennisbank/i })).toBeVisible();
     await expect(footer.getByRole("link", { name: /offerte/i })).toBeVisible();
@@ -48,8 +48,8 @@ test.describe("Homepage", () => {
     await expect(offerteLink).toHaveAttribute("href", "/offerte");
   });
 
-  test("renders 'Waarom Asbestvergelijken.nl?' section", async ({ page }) => {
-    await expect(page.getByText("Waarom Asbestvergelijken.nl?")).toBeVisible();
+  test("renders 'Waarom Olietankverwijderen.nl?' section", async ({ page }) => {
+    await expect(page.getByText("Waarom Olietankverwijderen.nl?")).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Gecertificeerd", exact: true }),
     ).toBeVisible();
@@ -61,6 +61,14 @@ test.describe("Homepage", () => {
     ).toBeVisible();
   });
 
+  test("renders kennisbank section with article cards", async ({ page }) => {
+    await expect(page.getByText("Alles over olietank verwijderen")).toBeVisible();
+    await expect(page.getByRole("link", { name: /Wat kost olietank verwijderen/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Olietank herkennen/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Wet- en regelgeving/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Zelf olietank verwijderen/i })).toBeVisible();
+  });
+
   test("has JSON-LD structured data", async ({ page }) => {
     const jsonLd = page.locator('script[type="application/ld+json"]');
     const count = await jsonLd.count();
@@ -69,12 +77,12 @@ test.describe("Homepage", () => {
     const content = await jsonLd.first().textContent();
     const data = JSON.parse(content!);
     expect(data["@type"]).toBe("WebSite");
-    expect(data.name).toBe("Asbestvergelijken.nl");
+    expect(data.name).toBe("Olietankverwijderen.nl");
   });
 
   test("has Open Graph meta tags", async ({ page }) => {
     const ogTitle = page.locator('meta[property="og:title"]');
-    await expect(ogTitle).toHaveAttribute("content", /Asbestvergelijken/);
+    await expect(ogTitle).toHaveAttribute("content", /olietankverwijderaars/i);
 
     const ogType = page.locator('meta[property="og:type"]');
     await expect(ogType).toHaveAttribute("content", "website");
@@ -84,7 +92,7 @@ test.describe("Homepage", () => {
     const description = page.locator('meta[name="description"]');
     await expect(description).toHaveAttribute(
       "content",
-      /asbestverwijdering/i,
+      /olietankverwijde/i,
     );
   });
 

@@ -28,16 +28,15 @@ test.describe("Offerte page", () => {
     await expect(page.locator("#postcode")).toBeVisible();
 
     // Radio buttons for type dienst
-    await expect(page.getByText("Asbestverwijdering")).toBeVisible();
-    await expect(page.getByText("Asbestinventarisatie")).toBeVisible();
-    await expect(page.getByText("Inventarisatie + verwijdering")).toBeVisible();
+    await expect(page.getByText("Tankverwijdering")).toBeVisible();
+    await expect(page.getByText("Bodemsanering")).toBeVisible();
+    await expect(page.getByText("Verwijdering + sanering")).toBeVisible();
   });
 
   test("renders optional fields", async ({ page }) => {
     await expect(page.locator("#telefoon")).toBeVisible();
-    await expect(page.locator("#type_materiaal")).toBeVisible();
-    await expect(page.locator("#oppervlakte_m2")).toBeVisible();
-    await expect(page.locator("#bouwjaar_pand")).toBeVisible();
+    await expect(page.locator("#type_tank")).toBeVisible();
+    await expect(page.locator("#inhoud_tank")).toBeVisible();
     await expect(page.locator("#urgentie")).toBeVisible();
     await expect(page.locator("#toelichting")).toBeVisible();
   });

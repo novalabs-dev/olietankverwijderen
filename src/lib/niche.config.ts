@@ -15,7 +15,7 @@ export const nicheConfig = {
   accentKleur: "#2563eb",
 
   // SEO
-  titelHome: "Olietankverwijderen.nl — Vind gecertificeerde olietankverwijderaars in Nederland",
+  titelHome: "Gecertificeerde Olietankverwijderaars in Nederland | Olietankverwijderen.nl",
   beschrijvingHome: "Vergelijk gecertificeerde olietankverwijderingsbedrijven in Nederland. Vraag gratis offertes aan en vind de beste specialist bij jou in de buurt.",
   hoofdKeyword: "olietank verwijderen",
   longTailKeywords: [

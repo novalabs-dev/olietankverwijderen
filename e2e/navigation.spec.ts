@@ -12,7 +12,7 @@ test.describe("Site navigation", () => {
     await page.goto("/");
     await page.locator("header").getByRole("link", { name: /bedrijven/i }).click();
     await expect(page).toHaveURL("/bedrijven");
-    await expect(page.locator("h1")).toContainText("Asbestverwijderingsbedrijven");
+    await expect(page.locator("h1")).toContainText("Olietankverwijderingsbedrijven");
   });
 
   test("header 'Kennisbank' link navigates correctly", async ({ page }) => {

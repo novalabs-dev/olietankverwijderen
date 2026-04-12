@@ -102,7 +102,7 @@ test.describe("SEO essentials", () => {
   test("kennisbank article has all required SEO elements", async ({
     page,
   }) => {
-    await page.goto("/kennisbank/wat-kost-asbest-verwijderen");
+    await page.goto("/kennisbank/kosten-olietank-verwijderen");
 
     await expect(page.locator("h1")).toBeVisible();
     await expect(page.locator('meta[name="description"]')).toHaveAttribute(
@@ -111,7 +111,7 @@ test.describe("SEO essentials", () => {
     );
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       "href",
-      /\/kennisbank\/wat-kost-asbest-verwijderen$/,
+      /\/kennisbank\/kosten-olietank-verwijderen$/,
     );
     await expect(
       page.locator('nav[aria-label="Breadcrumb"]'),

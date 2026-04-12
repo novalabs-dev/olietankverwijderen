@@ -132,37 +132,36 @@ export default async function ProvinciePage({ params }: ProvinciePageProps) {
         </Link>
       </div>
 
-      {/* Internal links */}
+      {/* Kennisbank + links */}
       <div className="mt-12">
         <h2 className="text-xl font-bold text-gray-900">
-          Meer informatie
+          Meer over olietank verwijderen
         </h2>
-        <ul className="mt-4 space-y-2">
-          <li>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { href: "/kennisbank/kosten-olietank-verwijderen", title: "Wat kost olietank verwijderen?" },
+            { href: "/kennisbank/olietank-herkennen", title: "Ondergrondse olietank herkennen" },
+            { href: "/kennisbank/wet-regelgeving-olietank", title: "Wet- en regelgeving olietanks" },
+            { href: "/kennisbank/bodemsanering-na-olietank", title: "Bodemsanering na verwijdering" },
+            { href: "/kennisbank/zelf-olietank-verwijderen", title: "Zelf olietank verwijderen: mag dat?" },
+          ].map((article) => (
             <Link
-              href="/bedrijven"
-              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+              key={article.href}
+              href={article.href}
+              className="block rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 transition-shadow hover:shadow-md hover:text-blue-600"
             >
-              Alle gecertificeerde olietankverwijderaars in Nederland
+              {article.title}
             </Link>
-          </li>
-          <li>
-            <Link
-              href="/kennisbank"
-              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
-            >
-              Kennisbank olietankverwijdering
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/offerte"
-              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
-            >
-              Gratis offerte aanvragen
-            </Link>
-          </li>
-        </ul>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-4">
+          <Link href="/bedrijven" className="text-sm text-blue-600 hover:text-blue-800 hover:underline">
+            Alle olietankverwijderaars in Nederland &rarr;
+          </Link>
+          <Link href="/kennisbank" className="text-sm text-blue-600 hover:text-blue-800 hover:underline">
+            Alle kennisbank artikelen &rarr;
+          </Link>
+        </div>
       </div>
     </div>
   );

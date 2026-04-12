@@ -8,11 +8,11 @@ test.describe("Bedrijven overview page", () => {
   test("renders H1 with page title", async ({ page }) => {
     const h1 = page.locator("h1");
     await expect(h1).toBeVisible();
-    await expect(h1).toContainText("Asbestverwijderingsbedrijven");
+    await expect(h1).toContainText("Olietankverwijderingsbedrijven");
   });
 
   test("has correct page title", async ({ page }) => {
-    await expect(page).toHaveTitle(/asbestverwijdering/i);
+    await expect(page).toHaveTitle(/olietankverwijdering/i);
   });
 
   test("renders breadcrumbs", async ({ page }) => {

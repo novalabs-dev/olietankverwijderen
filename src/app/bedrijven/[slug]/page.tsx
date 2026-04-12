@@ -409,6 +409,42 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
               )}
             </div>
           </div>
+
+          {/* Link naar stadpagina */}
+          {bedrijf.stad && bedrijf.provincie && (
+            <div className="mt-6 rounded-lg border border-gray-200 bg-white p-6">
+              <Link
+                href={`/${bedrijf.provincie.toLowerCase().replace(/\s+/g, "-")}/${bedrijf.stad.toLowerCase().replace(/\s+/g, "-")}`}
+                className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+              >
+                Meer olietankverwijderaars in {bedrijf.stad} &rarr;
+              </Link>
+            </div>
+          )}
+
+          {/* Kennisbank links */}
+          <div className="mt-6 rounded-lg border border-gray-200 bg-white p-6">
+            <h3 className="text-sm font-semibold text-gray-900">
+              Meer weten over olietank verwijderen?
+            </h3>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <Link href="/kennisbank/kosten-olietank-verwijderen" className="text-sm text-blue-600 hover:text-blue-800 hover:underline">
+                  Wat kost olietank verwijderen?
+                </Link>
+              </li>
+              <li>
+                <Link href="/kennisbank/wet-regelgeving-olietank" className="text-sm text-blue-600 hover:text-blue-800 hover:underline">
+                  Wet- en regelgeving
+                </Link>
+              </li>
+              <li>
+                <Link href="/kennisbank/bodemsanering-na-olietank" className="text-sm text-blue-600 hover:text-blue-800 hover:underline">
+                  Bodemsanering na verwijdering
+                </Link>
+              </li>
+            </ul>
+          </div>
         </aside>
       </div>
     </div>

@@ -10,7 +10,7 @@ const BASE_URL =
 
 export const metadata: Metadata = {
   title:
-    "Olietankverwijderen.nl — Vind gecertificeerde olietankverwijderaars in Nederland",
+    "Gecertificeerde Olietankverwijderaars in Nederland | Olietankverwijderen.nl",
   description:
     "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews, certificeringen en vraag gratis offertes aan.",
   openGraph: {
@@ -106,6 +106,56 @@ export default async function Home() {
           </div>
         </section>
       )}
+
+      {/* Kennisbank sectie */}
+      <section className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="text-2xl font-bold text-gray-900">
+              Alles over olietank verwijderen
+            </h2>
+            <Link
+              href="/kennisbank"
+              className="text-sm font-medium text-blue-600 hover:text-blue-800"
+            >
+              Bekijk alle artikelen &rarr;
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                href: "/kennisbank/kosten-olietank-verwijderen",
+                title: "Wat kost olietank verwijderen?",
+                desc: "Compleet prijsoverzicht per type tank en situatie.",
+              },
+              {
+                href: "/kennisbank/olietank-herkennen",
+                title: "Olietank herkennen",
+                desc: "Hoe herken je een ondergrondse olietank op je perceel?",
+              },
+              {
+                href: "/kennisbank/wet-regelgeving-olietank",
+                title: "Wet- en regelgeving",
+                desc: "De regels rondom olietanks en bodemsanering in Nederland.",
+              },
+              {
+                href: "/kennisbank/zelf-olietank-verwijderen",
+                title: "Zelf olietank verwijderen",
+                desc: "Mag je zelf een olietank verwijderen? De regels uitgelegd.",
+              },
+            ].map((article) => (
+              <Link
+                key={article.href}
+                href={article.href}
+                className="block rounded-lg border border-gray-200 bg-white p-5 transition-shadow hover:shadow-md"
+              >
+                <h3 className="font-semibold text-gray-900">{article.title}</h3>
+                <p className="mt-1 text-sm text-gray-600">{article.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Info section */}
       <section className="border-t border-gray-200 bg-gray-50 py-12 sm:py-16">
