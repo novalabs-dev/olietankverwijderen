@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { leadSchema, type LeadFormData } from "@/lib/validations/lead";
+import { nicheConfig } from "@/lib/niche.config";
 
 type FieldErrors = Partial<Record<keyof LeadFormData, string>>;
 
@@ -114,6 +115,14 @@ export function OfferteForm() {
         );
       }
 
+      // Fire GA4 conversion event (only if gtag is loaded)
+      if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag === "function") {
+        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "generate_lead", {
+          postcode: result.data.postcode,
+          type_dienst: result.data.type_dienst,
+          niche: nicheConfig.slug,
+        });
+      }
       setSubmitStatus("success");
     } catch (err) {
       setSubmitStatus("error");
