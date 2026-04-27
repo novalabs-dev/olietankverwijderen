@@ -115,14 +115,6 @@ export function OfferteForm() {
         );
       }
 
-      // Fire GA4 conversion event (only if gtag is loaded)
-      if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag === "function") {
-        (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "generate_lead", {
-          postcode: result.data.postcode,
-          type_dienst: result.data.type_dienst,
-          niche: nicheConfig.slug,
-        });
-      }
       setSubmitStatus("success");
     } catch (err) {
       setSubmitStatus("error");
