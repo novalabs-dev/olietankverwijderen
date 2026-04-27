@@ -27,7 +27,7 @@ export default function PrivacyPage() {
         Privacyverklaring
       </h1>
       <p className="mt-3 text-sm text-gray-500">
-        Laatst bijgewerkt: maart 2026
+        Laatst bijgewerkt: april 2026
       </p>
 
       <div className="prose prose-gray mt-8 max-w-none">
@@ -87,11 +87,20 @@ export default function PrivacyPage() {
           misbruik. Onze website maakt gebruik van een beveiligde SSL-verbinding.
         </p>
 
-        <h2>8. Cookies</h2>
+        <h2>8. Cookies en analytics</h2>
         <p>
-          Olietankverwijderen.nl maakt gebruik van functionele cookies die nodig
-          zijn voor het functioneren van de website. Wij plaatsen geen
-          tracking-cookies zonder je toestemming.
+          Olietankverwijderen.nl plaatst <strong>geen tracking- of
+          advertentiecookies</strong>. Voor bezoekersstatistieken gebruiken we
+          Plausible Analytics, een privacyvriendelijke EU-gehoste analyse-tool
+          die zonder cookies werkt en geen persoonsgegevens verwerkt. We meten
+          alleen geaggregeerde cijfers (paginabezoeken, populaire pagina&apos;s,
+          herkomstland). Volgens de Nederlandse Telecommunicatiewet (art. 11.7a)
+          is hiervoor geen cookiebanner of toestemming vereist.
+        </p>
+        <p>
+          De website kan een tijdelijke functionele sessie-cookie plaatsen om
+          formulieren correct te laten werken. Daarvoor is op grond van de wet
+          ook geen toestemming nodig.
         </p>
 
         <h2>9. Contact</h2>

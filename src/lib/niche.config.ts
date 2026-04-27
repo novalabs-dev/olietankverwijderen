@@ -26,8 +26,8 @@ export const nicheConfig = {
     "olietank laten verwijderen"
   ],
 
-  // Analytics
-  ga4Id: "G-E0FC6583H6",
+  // Analytics — Plausible (privacy-friendly, cookieless, EU-hosted; no banner needed)
+  plausibleScript: "pa-vfD70Bmo1zRl6hTB-RUn-.js",
 
   // Certificeringen
   certificeringen: [
