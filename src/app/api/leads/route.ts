@@ -51,11 +51,11 @@ export async function POST(request: NextRequest) {
         telefoon: data.telefoon ?? null,
         postcode: data.postcode,
         type_dienst: data.type_dienst,
-        type_tank: data.type_tank ?? null,
-        inhoud_tank: data.inhoud_tank ?? null,
+        type_materiaal: data.type_tank ?? null,
         urgentie: data.urgentie ?? null,
         toelichting: data.toelichting ?? null,
         landing_page: landingPage ?? null,
+        niche: "olietank",
         status: "nieuw",
         bron: "website",
       })
