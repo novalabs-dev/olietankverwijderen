@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { getArticleBySlug, getAllArticleSlugs } from "@/lib/mdx";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -44,6 +45,7 @@ export async function generateMetadata({
       ...(frontmatter.updatedAt
         ? { modifiedTime: frontmatter.updatedAt }
         : {}),
+      images: DEFAULT_OG_IMAGES,
     },
     alternates: {
       canonical: `/kennisbank/${slug}`,

@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { StickyCTA } from "@/components/layout/StickyCTA";
 import { Plausible } from "@/components/analytics/Plausible";
 import "./globals.css";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "nl_NL",
     siteName: "Olietankverwijderen.nl",
+    images: DEFAULT_OG_IMAGES,
   },
   alternates: {
     canonical: "/",

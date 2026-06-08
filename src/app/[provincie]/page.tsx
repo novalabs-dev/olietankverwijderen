@@ -7,6 +7,7 @@ import {
   getProvincies,
   getStedenByProvincie,
 } from "@/lib/data/steden";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -39,6 +40,7 @@ export async function generateMetadata({
       description,
       url: `${BASE_URL}/${provincieSlug}`,
       type: "website",
+      images: DEFAULT_OG_IMAGES,
     },
     alternates: {
       canonical: `/${provincieSlug}`,

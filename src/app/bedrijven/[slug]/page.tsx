@@ -10,6 +10,7 @@ import { StarRating } from "@/components/ui/StarRating";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import type { BedrijfMetRelaties, Review } from "@/lib/types";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -46,7 +47,7 @@ export async function generateMetadata({
       description,
       url: `${BASE_URL}/bedrijven/${bedrijf.slug}`,
       type: "website",
-      ...(bedrijf.logo_url ? { images: [{ url: bedrijf.logo_url }] } : {}),
+      images: bedrijf.logo_url ? [{ url: bedrijf.logo_url }] : DEFAULT_OG_IMAGES,
     },
     alternates: {
       canonical: `/bedrijven/${bedrijf.slug}`,

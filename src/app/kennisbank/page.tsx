@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getAllArticles } from "@/lib/mdx";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
       "Lees alles over olietankverwijdering: kosten, regelgeving, certificeringen en meer. Praktische informatie voor huiseigenaren en bedrijven.",
     url: `${BASE_URL}/kennisbank`,
     type: "website",
+    images: DEFAULT_OG_IMAGES,
   },
   alternates: {
     canonical: "/kennisbank",

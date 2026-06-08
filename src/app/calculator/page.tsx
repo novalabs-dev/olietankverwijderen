@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import { OlietankCalculator } from "@/components/calculator/OlietankCalculator";
 import { nicheConfig } from "@/lib/niche.config";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL = nicheConfig.baseUrl;
 
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
       "Bereken direct wat het verwijderen van een olietank kost. Vul het tanktype en volume in en ontvang een prijsindicatie.",
     url: `${BASE_URL}/calculator`,
     type: "website",
+    images: DEFAULT_OG_IMAGES,
   },
   alternates: {
     canonical: "/calculator",

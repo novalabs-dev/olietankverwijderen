@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { OfferteForm } from "@/components/forms/OfferteForm";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 export const metadata: Metadata = {
   title: "Gratis offerte aanvragen — Olietank verwijderen",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     title: "Gratis offerte aanvragen — Olietank verwijderen",
     description:
       "Vraag gratis en vrijblijvend offertes aan bij gecertificeerde olietankverwijderaars in jouw regio.",
+    images: DEFAULT_OG_IMAGES,
   },
   alternates: {
     canonical: "/offerte",

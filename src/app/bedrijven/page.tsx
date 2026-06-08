@@ -12,6 +12,7 @@ import { BedrijvenFilters as FilterBar } from "@/components/search/BedrijvenFilt
 import { Pagination } from "@/components/ui/Pagination";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
       "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en vraag direct een offerte aan.",
     url: `${BASE_URL}/bedrijven`,
     type: "website",
+    images: DEFAULT_OG_IMAGES,
   },
   alternates: {
     canonical: "/bedrijven",

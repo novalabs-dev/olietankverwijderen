@@ -11,6 +11,7 @@ import {
   getNabijSteden,
   getStedenByProvincie,
 } from "@/lib/data/steden";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -44,6 +45,7 @@ export async function generateMetadata({
       description: stad.metaDescription,
       url,
       type: "website",
+      images: DEFAULT_OG_IMAGES,
     },
     alternates: {
       canonical: `/${stad.provincieSlug}/${stad.slug}`,

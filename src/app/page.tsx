@@ -4,6 +4,7 @@ import { getBedrijven } from "@/lib/supabase/queries/bedrijven";
 import { BedrijfCard } from "@/components/bedrijven/BedrijfCard";
 import { PostcodeSearch } from "@/components/search/PostcodeSearch";
 import JsonLd from "@/components/seo/JsonLd";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
       "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews en vraag gratis offertes aan.",
     url: BASE_URL,
     type: "website",
+    images: DEFAULT_OG_IMAGES,
   },
   alternates: {
     canonical: "/",
