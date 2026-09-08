@@ -143,6 +143,14 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
     notFound();
   }
 
+  // Alleen naar een stadpagina linken als die stad er ook echt een heeft. De
+  // bedrijven komen uit het register en staan in veel meer plaatsen dan waar we
+  // een landingspagina voor hebben; zonder deze check wijst de link naar een 404,
+  // die Next bovendien prefetcht en dus als console-fout opduikt.
+  const stadPagina = bedrijf.stad
+    ? getStadBySlug(bedrijf.stad.toLowerCase().replace(/\s+/g, "-"))
+    : undefined;
+
   const publishedReviews = bedrijf.reviews.filter((r) => r.is_published);
 
   const breadcrumbItems = [
@@ -412,7 +420,7 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
           </div>
 
           {/* Link naar stadpagina */}
-          {bedrijf.stad && bedrijf.provincie && (
+          {bedrijf.stad && bedrijf.provincie && stadPagina && (
             <div className="mt-6 rounded-lg border border-gray-200 bg-white p-6">
               <Link
                 href={`/${bedrijf.provincie.toLowerCase().replace(/\s+/g, "-")}/${bedrijf.stad.toLowerCase().replace(/\s+/g, "-")}`}
@@ -451,3 +459,4 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
     </div>
   );
 }
+import { getStadBySlug } from "@/lib/data/steden";
