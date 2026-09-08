@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Olietankverwijderen.nl",
   },
   description:
-    "Vergelijk gecertificeerde olietankverwijderingsbedrijven in Nederland. Vraag gratis offertes aan en vind de beste specialist bij jou in de buurt.",
+    "Vergelijk gecertificeerde olietankverwijderingsbedrijven in Nederland. Vind de specialist bij jou in de buurt en neem zelf contact op.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl",
   ),

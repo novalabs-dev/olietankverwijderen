@@ -16,7 +16,7 @@ export const nicheConfig = {
 
   // SEO
   titelHome: "Gecertificeerde Olietankverwijderaars in Nederland | Olietankverwijderen.nl",
-  beschrijvingHome: "Vergelijk gecertificeerde olietankverwijderingsbedrijven in Nederland. Vraag gratis offertes aan en vind de beste specialist bij jou in de buurt.",
+  beschrijvingHome: "Vergelijk gecertificeerde olietankverwijderingsbedrijven in Nederland. Vind de specialist bij jou in de buurt en neem zelf contact op.",
   hoofdKeyword: "olietank verwijderen",
   longTailKeywords: [
     "olietank verwijderen kosten",

@@ -70,9 +70,7 @@ export function OlietankCalculator() {
   const [inclBodemonderzoek, setInclBodemonderzoek] = useState(true);
 
   // Lead capture
-  const [email, setEmail] = useState("");
   const [showResult, setShowResult] = useState(false);
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   // Step tracker
   const [currentStep, setCurrentStep] = useState<Step>(1);
@@ -136,28 +134,6 @@ export function OlietankCalculator() {
     }).format(n);
   }
 
-  async function handleEmailSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email || !kosten) return;
-
-    try {
-      await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          naam: "",
-          email,
-          postcode: "",
-          type_dienst: "verwijdering",
-          toelichting: `Via kostenberekening: ${TANKTYPEN[tanktype as TanktypeKey]?.label}, ${VOLUME_OPTIES[volume as VolumeKey]?.label}, verontreiniging: ${verontreiniging}, toegankelijkheid: ${toegankelijkheid}, bodemonderzoek: ${inclBodemonderzoek ? "ja" : "nee"}. Indicatie: ${formatBedrag(kosten.totaalMin)} - ${formatBedrag(kosten.totaalMax)}.`,
-        }),
-      });
-    } catch {
-      // silent - don't block the UX
-    }
-
-    setEmailSubmitted(true);
-  }
 
   // Step indicator
   const steps = [
@@ -505,69 +481,24 @@ export function OlietankCalculator() {
             </p>
           </div>
 
-          {/* Lead capture */}
-          {!emailSubmitted ? (
-            <div className="rounded-lg border border-blue-200 bg-white p-6">
-              <h3 className="text-lg font-semibold text-gray-900">
-                Ontvang offertes van bedrijven bij jou in de buurt
-              </h3>
-              <p className="mt-1 text-sm text-gray-600">
-                Vul je e-mailadres in en ontvang binnen 2 werkdagen vrijblijvende offertes
-                van gecertificeerde olietankverwijderaars.
-              </p>
-              <form onSubmit={handleEmailSubmit} className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
-                <div className="flex-1">
-                  <label htmlFor="calc-email" className="block text-sm font-medium text-gray-700">
-                    E-mailadres
-                  </label>
-                  <input
-                    id="calc-email"
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="je@email.nl"
-                    className="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-medium text-white hover:bg-blue-700"
-                >
-                  Gratis offertes ontvangen
-                </button>
-              </form>
-              <p className="mt-2 text-xs text-gray-400">
-                Geen spam. Je gegevens worden alleen gebruikt om offertes bij je op te vragen.
-              </p>
-            </div>
-          ) : (
-            <div className="rounded-lg border border-green-200 bg-green-50 p-6 text-center">
-              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900">Aanvraag ontvangen</h3>
-              <p className="mt-1 text-sm text-gray-600">
-                We koppelen je aan gecertificeerde olietankverwijderaars in jouw regio.
-                Je ontvangt binnen 2 werkdagen offertes.
-              </p>
-            </div>
-          )}
-
-          {/* Alternative CTA */}
-          <div className="text-center">
-            <p className="text-sm text-gray-500">
-              Liever direct uitgebreid offertes vergelijken?
+          {/* Verwijzing naar het bedrijvenoverzicht (lead-capture verwijderd 2026-09-08) */}
+          <div className="rounded-lg border border-gray-200 bg-white p-6">
+            <h3 className="text-lg font-semibold text-gray-900">
+              Bekijk gecertificeerde bedrijven bij jou in de buurt
+            </h3>
+            <p className="mt-1 text-sm text-gray-600">
+              We bemiddelen geen offerteaanvragen meer. In het overzicht staan de
+              gecertificeerde bedrijven met hun contactgegevens, zodat je zelf een
+              prijs kunt opvragen.
             </p>
             <Link
-              href="/offerte"
-              className="mt-2 inline-block rounded-lg border border-blue-600 px-6 py-2.5 text-sm font-medium text-blue-600 hover:bg-blue-50"
+              href="/bedrijven"
+              className="mt-4 inline-block rounded-lg bg-gray-900 px-6 py-2.5 text-sm font-medium text-white hover:bg-gray-700"
             >
-              Naar het uitgebreide offerteformulier
+              Naar het bedrijvenoverzicht
             </Link>
           </div>
+
 
           {/* Reset */}
           <div className="text-center">
@@ -581,8 +512,6 @@ export function OlietankCalculator() {
                 setInclBodemonderzoek(true);
                 setShowResult(false);
                 setCurrentStep(1);
-                setEmailSubmitted(false);
-                setEmail("");
               }}
               className="text-sm text-gray-500 underline hover:text-gray-700"
             >

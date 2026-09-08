@@ -82,7 +82,7 @@ export default async function OpengraphImage() {
             fontWeight: 500,
           }}
         >
-          <div style={{ display: "flex" }}>Gratis offertes vergelijken</div>
+          <div style={{ display: "flex" }}>Gecertificeerde bedrijven</div>
           <div
             style={{
               display: "flex",

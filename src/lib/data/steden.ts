@@ -43,7 +43,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 921000,
     metaTitle: "Olietankverwijdering Amsterdam - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Amsterdam. Vergelijk BRL SIKB 7000 bedrijven, bekijk reviews en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Amsterdam. Vergelijk BRL SIKB 7000 bedrijven, bekijk reviews. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Amsterdam",
     intro:
       "Amsterdam telt duizenden panden van voor 1994 waar een olietank in de grond kan zitten. Van grachtenpanden tot naoorlogse flats in Nieuw-West en Noord: overal kan olietanks voorkomen in dakbeschot, vloertegels of isolatiemateriaal. Vergelijk hieronder gecertificeerde olietankverwijderaars die actief zijn in Amsterdam en omgeving.",
@@ -78,7 +78,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 656000,
     metaTitle: "Olietankverwijdering Rotterdam - Gecertificeerde bedrijven",
     metaDescription:
-      "Vergelijk gecertificeerde olietankverwijderaars in Rotterdam. Bekijk reviews, certificeringen en vraag gratis offertes aan.",
+      "Vergelijk gecertificeerde olietankverwijderaars in Rotterdam. Bekijk reviews en certificeringen.",
     h1: "Olietankverwijdering in Rotterdam",
     intro:
       "Rotterdam is na het bombardement van 1940 grotendeels herbouwd in de naoorlogse periode, precies de tijd waarin olietanks op grote schaal werden geplaatst. Veel woningen in wijken als Kralingen, Hillegersberg en Rotterdam-Zuid bevatten olietankhoudende materialen. Vergelijk hieronder gecertificeerde olietankverwijderaars in Rotterdam.",
@@ -108,7 +108,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 552000,
     metaTitle: "Olietankverwijdering Den Haag - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Den Haag. Vergelijk bedrijven met BRL SIKB 7000 certificering en vraag gratis een offerte aan.",
+      "Gecertificeerde olietankverwijderaars in Den Haag. Vergelijk bedrijven met BRL SIKB 7000 certificering en neem zelf contact op.",
     h1: "Olietankverwijdering in Den Haag",
     intro:
       "Den Haag kent een gevarieerd woningbestand met veel vooroorlogse en naoorlogse woningen waar een olietank in de grond kan zitten. Van de herenhuizen in het Statenkwartier tot de flats in de Schilderswijk en Mariahoeve: olietanks komen in veel vormen voor. Vergelijk gecertificeerde olietankverwijderaars in Den Haag.",
@@ -138,7 +138,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 361000,
     metaTitle: "Olietankverwijdering Utrecht - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Utrecht. Vergelijk prijzen, bekijk reviews en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Utrecht. Vergelijk prijzen, bekijk reviews. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Utrecht",
     intro:
       "De stad Utrecht groeit snel en er wordt veel verbouwd en gerenoveerd. Bij woningen gebouwd voor 1994 komt regelmatig een olietank aan het licht. Van de wijken Overvecht en Kanaleneiland tot oudere delen van De Uithof: gecertificeerde olietankverwijdering is vaak nodig. Vergelijk hieronder de beste bedrijven in de regio Utrecht.",
@@ -168,7 +168,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 238000,
     metaTitle: "Olietankverwijdering Eindhoven - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Eindhoven en omgeving. Vergelijk bedrijven, bekijk reviews en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Eindhoven en omgeving. Vergelijk bedrijven, bekijk reviews. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Eindhoven",
     intro:
       "Eindhoven en omgeving kennen veel naoorlogse woningen en voormalige industriepanden waar olietanks aanwezig kunnen zijn. De stad groeit en er wordt volop gerenoveerd, waardoor olietankverwijdering aan de orde van de dag is. Vergelijk hieronder gecertificeerde olietankverwijderaars in de regio Eindhoven.",
@@ -198,7 +198,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 234000,
     metaTitle: "Olietankverwijdering Groningen - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Groningen. Vergelijk BRL SIKB 7000 bedrijven en vraag direct gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Groningen. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Groningen",
     intro:
       "In de provincie Groningen speelt olietanks een extra grote rol door de aardbevingsproblematiek. Veel woningen en boerderijen bevatten olietanks die door trillingen kan beschadigen. Daarnaast kent de stad Groningen veel naoorlogse wijken met olietankhoudende materialen. Vergelijk hier de beste gecertificeerde bedrijven.",
@@ -228,7 +228,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 224000,
     metaTitle: "Olietankverwijdering Tilburg - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Tilburg. Vergelijk bedrijven, bekijk certificeringen en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Tilburg. Vergelijk bedrijven, bekijk certificeringen. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Tilburg",
     intro:
       "Tilburg heeft als voormalige textielstad veel industrieel erfgoed waar olietanks aanwezig kunnen zijn. Ook in de naoorlogse woonwijken komt olietanks veelvuldig voor. Bij renovatie of sloop is professionele olietankverwijdering vaak nodig. Vergelijk hieronder gecertificeerde bedrijven in Tilburg en omgeving.",
@@ -253,7 +253,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 218000,
     metaTitle: "Olietankverwijdering Almere - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Almere. Vergelijk bedrijven en vraag gratis offertes aan voor olietankverwijdering.",
+      "Vind gecertificeerde olietankverwijderaars in Almere. Vergelijk bedrijven en neem zelf contact op voor olietankverwijdering.",
     h1: "Olietankverwijdering in Almere",
     intro:
       "Almere is een relatief jonge stad, maar de eerste wijken (Almere-Haven, Almere-Stad) zijn gebouwd in de late jaren '70 en '80 - precies de periode dat olietanks nog veel werden geplaatst. Bij renovatie van deze woningen komt regelmatig een olietank aan het licht. Vergelijk hieronder gecertificeerde bedrijven.",
@@ -278,7 +278,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 185000,
     metaTitle: "Olietankverwijdering Breda - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Breda en omgeving. Vergelijk bedrijven, bekijk reviews en vraag gratis een offerte aan.",
+      "Gecertificeerde olietankverwijderaars in Breda en omgeving. Vergelijk bedrijven, bekijk reviews en neem zelf contact op.",
     h1: "Olietankverwijdering in Breda",
     intro:
       "Breda kent zowel een historische binnenstad als naoorlogse uitbreidingswijken waar olietanks veel is toegepast. Bij verbouwingen en renovaties is professionele olietankverwijdering regelmatig nodig. Vergelijk hier de gecertificeerde olietankverwijderaars in Breda en omgeving.",
@@ -303,7 +303,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 177000,
     metaTitle: "Olietankverwijdering Nijmegen - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Nijmegen. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Nijmegen. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Nijmegen",
     intro:
       "Nijmegen, de oudste stad van Nederland, heeft een divers woningbestand. De naoorlogse wederopbouwwijken bevatten regelmatig olietanks. Bij verbouwing of sloop is professionele verwijdering verplicht. Vergelijk hieronder de beste gecertificeerde bedrijven in de regio Nijmegen.",
@@ -328,7 +328,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 164000,
     metaTitle: "Olietankverwijdering Arnhem - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Arnhem. Vergelijk bedrijven met BRL SIKB 7000 certificering en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Arnhem. Vergelijk bedrijven met BRL SIKB 7000 certificering. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Arnhem",
     intro:
       "Arnhem werd zwaar getroffen tijdens de Slag om Arnhem en is daarna herbouwd in de periode dat olietanks volop werden geplaatst. De naoorlogse wijken bevatten regelmatig olietankhoudende materialen. Vergelijk hieronder gecertificeerde olietankverwijderaars in Arnhem en omgeving.",
@@ -353,7 +353,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 162000,
     metaTitle: "Olietankverwijdering Haarlem - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Haarlem. Vergelijk bedrijven, bekijk reviews en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Haarlem. Vergelijk bedrijven, bekijk reviews. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Haarlem",
     intro:
       "Haarlem heeft een mix van historische binnenstad en naoorlogse uitbreidingswijken. In veel woningen uit de jaren '50 tot '80 is olietanks aanwezig. Bij renovatie is professionele olietankverwijdering vaak nodig. Vergelijk hier de beste gecertificeerde bedrijven in Haarlem.",
@@ -378,7 +378,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 160000,
     metaTitle: "Olietankverwijdering Enschede - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Enschede. Vergelijk bedrijven en vraag gratis offertes aan voor olietankverwijdering.",
+      "Gecertificeerde olietankverwijderaars in Enschede. Vergelijk bedrijven en neem zelf contact op voor olietankverwijdering.",
     h1: "Olietankverwijdering in Enschede",
     intro:
       "Enschede heeft als voormalige textielstad veel industrieel erfgoed en naoorlogse woningbouw waar olietanks aanwezig kunnen zijn. Na de vuurwerkramp van 2000 is veel ervaring opgebouwd met olietanksanering. Vergelijk hier gecertificeerde olietankverwijderaars in Enschede en Twente.",
@@ -403,7 +403,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 165000,
     metaTitle: "Olietankverwijdering Apeldoorn - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Apeldoorn. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Apeldoorn. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Apeldoorn",
     intro:
       "Apeldoorn kent veel woningbouw uit de naoorlogse periode en een landelijke omgeving met agrarische gebouwen waar olietankdaken veelvuldig voorkomen. Vergelijk hieronder gecertificeerde olietankverwijderaars in Apeldoorn en omgeving op de Veluwe.",
@@ -428,7 +428,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 160000,
     metaTitle: "Olietankverwijdering Amersfoort - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Amersfoort. Vergelijk BRL SIKB 7000 bedrijven, bekijk reviews en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Amersfoort. Vergelijk BRL SIKB 7000 bedrijven, bekijk reviews. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Amersfoort",
     intro:
       "Amersfoort groeit snel en er wordt veel verbouwd. De naoorlogse wijken bevatten regelmatig olietanks die bij renovatie moet worden verwijderd. Vergelijk hieronder gecertificeerde olietankverwijderaars in Amersfoort en omgeving.",
@@ -453,7 +453,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 157000,
     metaTitle: "Olietankverwijdering Zaanstad - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Zaanstad (Zaandam). Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Zaanstad (Zaandam). Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Zaanstad",
     intro:
       "Zaanstad, met de kern Zaandam, kent een rijke industriële geschiedenis. In voormalige fabrieken en naoorlogse woonwijken is veel olietanks aanwezig. Vergelijk hier gecertificeerde olietankverwijderaars in Zaanstad en de Zaanstreek.",
@@ -478,7 +478,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 158000,
     metaTitle: "Olietankverwijdering Den Bosch - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Den Bosch. Vergelijk bedrijven, bekijk certificeringen en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Den Bosch. Vergelijk bedrijven, bekijk certificeringen. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in 's-Hertogenbosch",
     intro:
       "Den Bosch heeft een historische binnenstad en naoorlogse uitbreidingswijken waar olietanks is toegepast. Bij verbouwing of sloop is gecertificeerde olietankverwijdering verplicht. Vergelijk hieronder de beste bedrijven in Den Bosch en omgeving.",
@@ -503,7 +503,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 157000,
     metaTitle: "Olietankverwijdering Haarlemmermeer - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Haarlemmermeer (Hoofddorp). Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Haarlemmermeer (Hoofddorp). Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Haarlemmermeer",
     intro:
       "De gemeente Haarlemmermeer, met Hoofddorp als grootste kern, kent zowel agrarische bebouwing als naoorlogse wijken waar olietanks in voorkomt. Vergelijk hier gecertificeerde olietankverwijderaars in Haarlemmermeer en omgeving.",
@@ -528,7 +528,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 131000,
     metaTitle: "Olietankverwijdering Zwolle - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Zwolle. Vergelijk bedrijven, bekijk reviews en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Zwolle. Vergelijk bedrijven, bekijk reviews. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Zwolle",
     intro:
       "Zwolle kent naoorlogse uitbreidingswijken en een landelijke omgeving met agrarische gebouwen waar olietanks veelvuldig voorkomt. Vergelijk hier gecertificeerde olietankverwijderaars in Zwolle en omgeving.",
@@ -553,7 +553,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 126000,
     metaTitle: "Olietankverwijdering Leiden - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Leiden. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Leiden. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Leiden",
     intro:
       "Leiden heeft als universiteitsstad een mix van historische en naoorlogse bebouwing. In veel woningen uit de jaren '50 tot '80 is olietanks aanwezig. Vergelijk hier de gecertificeerde olietankverwijderaars in Leiden en omgeving.",
@@ -578,7 +578,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 121000,
     metaTitle: "Olietankverwijdering Maastricht - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Maastricht. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Maastricht. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Maastricht",
     intro:
       "Maastricht kent als oudste stad van Nederland veel historische bebouwing en naoorlogse wijken waar olietanks is verwerkt. Bij renovatie van woningen uit de jaren '50 tot '80 wordt regelmatig olietanks aangetroffen. Vergelijk hier gecertificeerde olietankverwijderaars in Maastricht en Zuid-Limburg.",
@@ -608,7 +608,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 126000,
     metaTitle: "Olietankverwijdering Zoetermeer - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Zoetermeer. Vergelijk bedrijven, bekijk reviews en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Zoetermeer. Vergelijk bedrijven, bekijk reviews. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Zoetermeer",
     intro:
       "Zoetermeer groeide in de jaren '60 tot '80 explosief als groeikern. Veel woningen uit die periode bevatten olietankhoudende materialen. Bij renovatie of sloop is professionele olietankverwijdering vaak noodzakelijk. Vergelijk hier gecertificeerde bedrijven in Zoetermeer.",
@@ -633,7 +633,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 119000,
     metaTitle: "Olietankverwijdering Dordrecht - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Dordrecht. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Dordrecht. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Dordrecht",
     intro:
       "Dordrecht is een van de oudste steden van Holland met veel historische bebouwing en naoorlogse woonwijken. Bij verbouwingen wordt regelmatig olietanks aangetroffen. Vergelijk hier gecertificeerde olietankverwijderaars in Dordrecht en de Drechtsteden.",
@@ -658,7 +658,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 124000,
     metaTitle: "Olietankverwijdering Leeuwarden - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Leeuwarden en Friesland. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Leeuwarden en Friesland. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Leeuwarden",
     intro:
       "Leeuwarden en Friesland kennen veel agrarische bebouwing met olietankdaken. Ook in de naoorlogse woonwijken van de Friese hoofdstad is olietanks aanwezig. Vergelijk hier gecertificeerde olietankverwijderaars in Leeuwarden en omgeving.",
@@ -688,7 +688,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 49000,
     metaTitle: "Olietankverwijdering Middelburg - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Middelburg en Zeeland. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Middelburg en Zeeland. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Middelburg",
     intro:
       "Middelburg en Zeeland kennen veel naoorlogse bebouwing en agrarische gebouwen waar olietanks in voorkomt. Vergelijk hier gecertificeerde olietankverwijderaars in Middelburg en de rest van Zeeland.",
@@ -718,7 +718,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 107000,
     metaTitle: "Olietankverwijdering Emmen - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Emmen en Drenthe. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Emmen en Drenthe. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Emmen",
     intro:
       "Emmen en Drenthe kennen veel agrarische bebouwing met olietankdaken en naoorlogse woonwijken. Bij renovatie of sloop is professionele olietankverwijdering vaak nodig. Vergelijk hier gecertificeerde bedrijven in Emmen en omgeving.",
@@ -743,7 +743,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 104000,
     metaTitle: "Olietankverwijdering Delft - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Delft. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Delft. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Delft",
     intro:
       "Delft is een historische stad met veel vooroorlogse en naoorlogse bebouwing waar een olietank in de grond kan zitten. Vooral in de woonwijken uit de jaren '50 tot '80 rondom de oude binnenstad wordt bij renovatie regelmatig olietanks aangetroffen. Vergelijk hier gecertificeerde olietankverwijderaars in Delft.",
@@ -773,7 +773,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 110000,
     metaTitle: "Olietankverwijdering Alkmaar - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Alkmaar. Vergelijk bedrijven, bekijk reviews en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Alkmaar. Vergelijk bedrijven, bekijk reviews. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Alkmaar",
     intro:
       "Alkmaar en de regio Noord-Holland Noord kennen veel naoorlogse woonwijken en agrarische bebouwing waar olietanks is verwerkt. Bij verbouwing of sloop is professionele olietankverwijdering vaak nodig. Vergelijk hier gecertificeerde bedrijven in Alkmaar en omgeving.",
@@ -798,7 +798,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 101000,
     metaTitle: "Olietankverwijdering Deventer - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Deventer. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Deventer. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Deventer",
     intro:
       "Deventer heeft een historische binnenstad en uitgestrekte naoorlogse woonwijken waar een olietank in de grond kan zitten. De stad kent ook veel voormalige industriepanden waar olietanksanering nodig is. Vergelijk hier gecertificeerde olietankverwijderaars in Deventer en omgeving.",
@@ -823,7 +823,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 92000,
     metaTitle: "Olietankverwijdering Hilversum - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Hilversum. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Hilversum. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Hilversum",
     intro:
       "Hilversum, de mediastad in het Gooi, kent veel villa's en woonwijken uit de eerste helft van de 20e eeuw. In woningen gebouwd voor 1994 kan olietanks voorkomen. Vergelijk hier gecertificeerde olietankverwijderaars in Hilversum en het Gooi.",
@@ -848,7 +848,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 81000,
     metaTitle: "Olietankverwijdering Hengelo - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Hengelo. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Hengelo. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Hengelo",
     intro:
       "Hengelo heeft als voormalige industriestad een rijk verleden met Stork en andere fabrieken waar olietanks veelvuldig werd gebruikt. Ook in de naoorlogse woonwijken komen olietanks voor. Vergelijk hier gecertificeerde olietankverwijderaars in Hengelo en Twente.",
@@ -873,7 +873,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 93000,
     metaTitle: "Olietankverwijdering Helmond - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Helmond. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Helmond. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Helmond",
     intro:
       "Helmond is een voormalige textielstad met veel naoorlogse woonwijken en industriepanden waar olietanks aanwezig kunnen zijn. Door de groei en renovatie van de stad is olietankverwijdering een belangrijk thema. Vergelijk hier gecertificeerde olietankverwijderaars in Helmond.",
@@ -898,7 +898,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 93000,
     metaTitle: "Olietankverwijdering Oss - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Oss. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Oss. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Oss",
     intro:
       "Oss kent als voormalige industriestad veel bebouwing waar olietanks aanwezig kunnen zijn. Van de farmaceutische industrie tot naoorlogse woonwijken: olietanks komen in diverse vormen voor. Vergelijk hier gecertificeerde olietankverwijderaars in Oss en omgeving.",
@@ -923,7 +923,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 79000,
     metaTitle: "Olietankverwijdering Schiedam - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Schiedam. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Schiedam. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Schiedam",
     intro:
       "Schiedam heeft als voormalige jeneverstad veel historische panden en naoorlogse woonwijken waar olietanks voorkomt. Door de ligging naast Rotterdam zijn er veel gecertificeerde bedrijven in de buurt. Vergelijk hier olietankverwijderaars in Schiedam.",
@@ -948,7 +948,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 102000,
     metaTitle: "Olietankverwijdering Venlo - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Venlo en Noord-Limburg. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Venlo en Noord-Limburg. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Venlo",
     intro:
       "Venlo en Noord-Limburg kennen veel naoorlogse bebouwing en logistieke bedrijfspanden waar olietanks aanwezig kunnen zijn. De grensligging zorgt ervoor dat er ook Duitse olietankregels kunnen spelen bij grensoverschrijdende projecten. Vergelijk hier gecertificeerde olietankverwijderaars in Venlo.",
@@ -973,7 +973,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 81000,
     metaTitle: "Olietankverwijdering Lelystad - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Lelystad en Flevoland. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Lelystad en Flevoland. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Lelystad",
     intro:
       "Lelystad is grotendeels gebouwd in de jaren '60 tot '80, precies de periode waarin olietanks op grote schaal werden geplaatst in de bouw. Veel woningen en bedrijfspanden bevatten olietankhoudende materialen. Vergelijk hier gecertificeerde olietankverwijderaars in Lelystad en Flevoland.",
@@ -998,7 +998,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 77000,
     metaTitle: "Olietankverwijdering Roosendaal - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Roosendaal. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Roosendaal. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Roosendaal",
     intro:
       "Roosendaal en West-Brabant kennen veel naoorlogse woonwijken en agrarische bebouwing waar olietanks aanwezig kunnen zijn. Als knooppuntstad heeft Roosendaal ook veel bedrijfspanden uit de olietankperiode. Vergelijk hier gecertificeerde olietankverwijderaars.",
@@ -1023,7 +1023,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 74000,
     metaTitle: "Olietankverwijdering Vlaardingen - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Vlaardingen. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Vlaardingen. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Vlaardingen",
     intro:
       "Vlaardingen heeft als voormalige haringstad veel naoorlogse woonwijken en havengebieden waar olietanks is verwerkt. Door stedelijke vernieuwing wordt regelmatig olietanks aangetroffen. Vergelijk hier gecertificeerde olietankverwijderaars in Vlaardingen.",
@@ -1048,7 +1048,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 112000,
     metaTitle: "Olietankverwijdering Alphen aan den Rijn - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Alphen aan den Rijn. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Alphen aan den Rijn. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Alphen aan den Rijn",
     intro:
       "Alphen aan den Rijn groeide sterk in de jaren '60 tot '80 als forensenstad. Veel woningen uit die periode bevatten olietankhoudende materialen. Vergelijk hier gecertificeerde olietankverwijderaars in Alphen aan den Rijn en het Groene Hart.",
@@ -1073,7 +1073,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 91000,
     metaTitle: "Olietankverwijdering Amstelveen - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Amstelveen. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Amstelveen. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Amstelveen",
     intro:
       "Amstelveen groeide in de naoorlogse periode fors als woonplaats voor forensen. Veel woningen uit de jaren '50 tot '80 bevatten olietankhoudende materialen. Vergelijk hier gecertificeerde olietankverwijderaars in Amstelveen.",
@@ -1098,7 +1098,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 74000,
     metaTitle: "Olietankverwijdering Gouda - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Gouda. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Gouda. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Gouda",
     intro:
       "Gouda heeft naast haar beroemde binnenstad veel naoorlogse woonwijken waar olietanks aanwezig kunnen zijn. Bij renovatie van woningen uit de jaren '50 tot '80 wordt regelmatig olietanks aangetroffen. Vergelijk hier gecertificeerde olietankverwijderaars in Gouda.",
@@ -1123,7 +1123,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 119000,
     metaTitle: "Olietankverwijdering Ede - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Ede en de Veluwe. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Ede en de Veluwe. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Ede",
     intro:
       "Ede is een uitgestrekte gemeente op de Veluwe met zowel stedelijke bebouwing als veel agrarische gebouwen. In beide typen komt olietanks veelvuldig voor. Vergelijk hier gecertificeerde olietankverwijderaars in Ede en omgeving.",
@@ -1148,7 +1148,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 81000,
     metaTitle: "Olietankverwijdering Purmerend - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Purmerend. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Purmerend. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Purmerend",
     intro:
       "Purmerend groeide als groeikern explosief in de jaren '70 en '80. Veel woningen uit die periode bevatten olietankhoudende materialen. Vergelijk hier gecertificeerde olietankverwijderaars in Purmerend en Waterland.",
@@ -1173,7 +1173,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 92000,
     metaTitle: "Olietankverwijdering Sittard-Geleen - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Sittard-Geleen. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Sittard-Geleen. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Sittard-Geleen",
     intro:
       "Sittard-Geleen kent als voormalige mijnstreek veel industriële en naoorlogse bebouwing waar olietanks aanwezig kunnen zijn. De chemische industrie (Chemelot) heeft extra bijgedragen aan olietanksgebruik in de regio. Vergelijk hier gecertificeerde olietankverwijderaars.",
@@ -1198,7 +1198,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 77000,
     metaTitle: "Olietankverwijdering Hoofddorp - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Hoofddorp. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Hoofddorp. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Hoofddorp",
     intro:
       "Hoofddorp en de Haarlemmermeer groeide sterk vanaf de jaren '60. Veel bedrijfspanden rond Schiphol en woningen uit die periode bevatten olietanks. Vergelijk hier gecertificeerde olietankverwijderaars in Hoofddorp.",
@@ -1223,7 +1223,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 73000,
     metaTitle: "Olietankverwijdering Spijkenisse - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Spijkenisse. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Spijkenisse. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Spijkenisse",
     intro:
       "Spijkenisse groeide als groeikern vanaf de jaren '70 explosief. Veel woningen uit die periode bevatten olietankhoudende materialen. Door de nabijheid van Rotterdam zijn er veel gecertificeerde bedrijven beschikbaar. Vergelijk hier olietankverwijderaars in Spijkenisse.",
@@ -1248,7 +1248,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 55000,
     metaTitle: "Olietankverwijdering Den Helder - Gecertificeerde bedrijven",
     metaDescription:
-      "Vind gecertificeerde olietankverwijderaars in Den Helder. Vergelijk BRL SIKB 7000 bedrijven en vraag gratis offertes aan.",
+      "Vind gecertificeerde olietankverwijderaars in Den Helder. Vergelijk BRL SIKB 7000 bedrijven. Neem daarna zelf contact op.",
     h1: "Olietankverwijdering in Den Helder",
     intro:
       "Den Helder kent als marinestad veel naoorlogse bebouwing en defensiegebouwen waar olietanks aanwezig kunnen zijn. De marine-basis en havengebieden hebben een rijke historie met olietankhoudende materialen. Vergelijk hier gecertificeerde olietankverwijderaars in Den Helder.",
@@ -1273,7 +1273,7 @@ export const STEDEN: StadLandingData[] = [
     inwoners: 68000,
     metaTitle: "Olietankverwijdering Veenendaal - Gecertificeerde bedrijven",
     metaDescription:
-      "Gecertificeerde olietankverwijderaars in Veenendaal. Vergelijk bedrijven en vraag gratis offertes aan.",
+      "Gecertificeerde olietankverwijderaars in Veenendaal. Vergelijk bedrijven en benader ze zelf.",
     h1: "Olietankverwijdering in Veenendaal",
     intro:
       "Veenendaal groeide sterk in de naoorlogse periode als industriestadje. De textiel- en tabaksindustrie plaatsten olietanks op grote schaal. Ook in woonwijken uit die tijd wordt regelmatig olietanks gevonden. Vergelijk hier gecertificeerde olietankverwijderaars.",

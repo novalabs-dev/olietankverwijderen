@@ -1,17 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
-import { OfferteForm } from "@/components/forms/OfferteForm";
+import { nicheConfig } from "@/lib/niche.config";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
+/**
+ * De offertebemiddeling is op 8 september 2026 gestopt.
+ *
+ * Deze route blijft bestaan omdat er zoekresultaten en interne links naar
+ * /offerte wijzen. Bezoekers krijgen hier een eerlijke uitleg en de weg naar de
+ * bedrijven, in plaats van een formulier dat niemand meer verwerkt of een 404.
+ */
+
+const REGISTER = {
+  certificaat: "de BRL K902- of K904-erkenning",
+  naam: "het register van erkende bodemintermediairs van Bodem+",
+  url: "https://www.bodemplus.nl/onderwerpen/bodem-ondergrond/kwalibo/erkende-bodemintermediairs/",
+};
+
+const TITEL = `Offerte aanvragen bij ${nicheConfig.siteNaam}`;
+const BESCHRIJVING = `${nicheConfig.siteNaam} bemiddelt geen offerteaanvragen meer. Je vindt hier wel het overzicht van gecertificeerde ${nicheConfig.naamMeervoud} met hun gegevens, zodat je ze zelf rechtstreeks kunt benaderen.`;
+
 export const metadata: Metadata = {
-  title: "Gratis offerte aanvragen — Olietank verwijderen",
-  description:
-    "Vraag gratis en vrijblijvend offertes aan bij gecertificeerde olietankverwijderaars in jouw regio. Vergelijk prijzen en bespaar op olietankverwijdering.",
+  title: TITEL,
+  description: BESCHRIJVING,
   openGraph: {
-    title: "Gratis offerte aanvragen — Olietank verwijderen",
-    description:
-      "Vraag gratis en vrijblijvend offertes aan bij gecertificeerde olietankverwijderaars in jouw regio.",
+    title: TITEL,
+    description: BESCHRIJVING,
+    url: `${nicheConfig.baseUrl}/offerte`,
     images: DEFAULT_OG_IMAGES,
   },
   alternates: {
@@ -25,132 +41,114 @@ const breadcrumbItems = [
 ];
 
 export default function OffertePage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Gratis offerte aanvragen — Olietank verwijderen",
-    description:
-      "Vraag gratis en vrijblijvend offertes aan bij gecertificeerde olietankverwijderaars.",
-    url: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl"}/offerte`,
-  };
-
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      {/* Schema.org structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      {/* Breadcrumbs */}
+    <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-6">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 
-      {/* Page header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Gratis offerte aanvragen
-        </h1>
-        <p className="mt-3 max-w-2xl text-lg text-gray-600">
-          Vul het formulier in en ontvang binnen 2 werkdagen vrijblijvende
-          offertes van gecertificeerde olietankverwijderaars in jouw regio.
+      <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Offerte aanvragen
+      </h1>
+
+      <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-5">
+        <p className="text-base text-gray-800">
+          Sinds september 2026 sturen we aanvragen niet meer door naar bedrijven.
+          Het offerteformulier is daarom weg. We vonden het eerlijker om ermee te
+          stoppen dan om aanvragen aan te nemen die blijven liggen.
+        </p>
+        <p className="mt-3 text-base text-gray-800">
+          Wat blijft: het overzicht van gecertificeerde {nicheConfig.naamMeervoud}
+          op deze site. Je kunt ze zelf rechtstreeks benaderen, en dat gaat
+          meestal sneller dan via een tussenpartij.
         </p>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-3">
-        {/* Form — takes up 2 columns on large screens */}
-        <div className="lg:col-span-2">
-          <OfferteForm />
-        </div>
-
-        {/* Sidebar */}
-        <aside className="lg:col-span-1">
-          <div className="sticky top-8 space-y-6">
-            {/* Why us */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6">
-              <h2 className="text-lg font-semibold text-gray-900">
-                Waarom via ons?
-              </h2>
-              <ul className="mt-4 space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs text-blue-600">
-                    1
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">
-                      100% gratis en vrijblijvend
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Je zit nergens aan vast en betaalt nooit voor offertes.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs text-blue-600">
-                    2
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">
-                      Alleen gecertificeerde bedrijven
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Alle bedrijven zijn BRL SIKB 7000 gecertificeerd voor
-                      bodemsanering en tankverwijdering.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs text-blue-600">
-                    3
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">
-                      Vergelijk en bespaar
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Ontvang meerdere offertes en kies het bedrijf dat bij je
-                      past.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            {/* Quick links */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6">
-              <h2 className="text-lg font-semibold text-gray-900">
-                Meer informatie
-              </h2>
-              <ul className="mt-3 space-y-2">
-                <li>
-                  <Link
-                    href="/bedrijven"
-                    className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
-                  >
-                    Bekijk alle gecertificeerde bedrijven
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/kennisbank"
-                    className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
-                  >
-                    Veelgestelde vragen over olietanks
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
-                  >
-                    Neem contact met ons op
-                  </Link>
-                </li>
-              </ul>
-            </div>
+      <h2 className="mt-10 text-xl font-semibold text-gray-900">
+        Zo vraag je zelf een offerte aan
+      </h2>
+      <ol className="mt-4 space-y-4">
+        <li className="flex gap-4">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm font-medium text-white">
+            1
+          </span>
+          <div>
+            <p className="font-medium text-gray-900">Zoek bedrijven in jouw regio</p>
+            <p className="mt-1 text-sm text-gray-600">
+              Filter het overzicht op provincie of postcode. Op elke bedrijfspagina
+              staan de contactgegevens.
+            </p>
+            <Link
+              href="/bedrijven"
+              className="mt-2 inline-block text-sm font-medium text-blue-600 hover:text-blue-800"
+            >
+              Bekijk alle gecertificeerde bedrijven &rarr;
+            </Link>
           </div>
-        </aside>
+        </li>
+        <li className="flex gap-4">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm font-medium text-white">
+            2
+          </span>
+          <div>
+            <p className="font-medium text-gray-900">Controleer het certificaat</p>
+            <p className="mt-1 text-sm text-gray-600">
+              Onze gegevens komen uit een officieel register, maar ze worden niet
+              meer bijgewerkt. Controleer {REGISTER.certificaat} daarom zelf in{" "}
+              <a
+                href={REGISTER.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline hover:text-blue-800"
+              >
+                {REGISTER.naam}
+              </a>{"."}
+            </p>
+          </div>
+        </li>
+        <li className="flex gap-4">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-900 text-sm font-medium text-white">
+            3
+          </span>
+          <div>
+            <p className="font-medium text-gray-900">Vraag twee of drie offertes op</p>
+            <p className="mt-1 text-sm text-gray-600">
+              Bel of mail zelf een paar bedrijven. Beschrijf wat er moet gebeuren
+              en laat ze eerst langskomen voordat ze een prijs geven, dan kun je de
+              offertes echt vergelijken.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <div className="mt-10 border-t border-gray-200 pt-6">
+        <h2 className="text-lg font-semibold text-gray-900">Meer informatie</h2>
+        <ul className="mt-3 space-y-2">
+          <li>
+            <Link
+              href="/bedrijven"
+              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              Alle gecertificeerde bedrijven
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/kennisbank"
+              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              Kennisbank met veelgestelde vragen
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   );

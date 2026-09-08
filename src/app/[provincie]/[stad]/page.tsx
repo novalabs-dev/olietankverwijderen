@@ -130,18 +130,17 @@ export default async function StadPage({ params }: StadPageProps) {
         <div className="mb-10 flex flex-col gap-4 rounded-lg border border-blue-200 bg-blue-50 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-semibold text-gray-900">
-              Offerte nodig voor olietankverwijdering in {stad.naam}?
+              Bedrijf zoeken voor olietankverwijdering in {stad.naam}?
             </p>
             <p className="mt-1 text-sm text-gray-600">
-              Vergelijk gratis en vrijblijvend meerdere offertes van
-              gecertificeerde bedrijven.
+              Vergelijk gecertificeerde bedrijven en benader ze zelf.
             </p>
           </div>
           <Link
-            href="/offerte"
+            href="/bedrijven"
             className="shrink-0 rounded-lg bg-blue-600 px-6 py-3 text-center text-sm font-medium text-white hover:bg-blue-700"
           >
-            Gratis offerte aanvragen
+            Bekijk gecertificeerde bedrijven
           </Link>
         </div>
 
@@ -269,17 +268,16 @@ export default async function StadPage({ params }: StadPageProps) {
               {/* Quick offerte CTA */}
               <div className="rounded-lg border border-blue-200 bg-blue-50 p-6">
                 <h3 className="font-semibold text-gray-900">
-                  Offerte aanvragen
+                  Bekijk bedrijven
                 </h3>
                 <p className="mt-2 text-sm text-gray-600">
-                  Gratis en vrijblijvend offertes vergelijken van gecertificeerde
-                  bedrijven in {stad.naam}.
+                  Gecertificeerde bedrijven met contactgegevens in {stad.naam}.
                 </p>
                 <Link
-                  href="/offerte"
+                  href="/bedrijven"
                   className="mt-4 block rounded-lg bg-blue-600 px-4 py-2 text-center text-sm font-medium text-white hover:bg-blue-700"
                 >
-                  Vraag offerte aan
+                  Bekijk bedrijven
                 </Link>
               </div>
 
@@ -349,10 +347,10 @@ export default async function StadPage({ params }: StadPageProps) {
                   </li>
                   <li>
                     <Link
-                      href="/offerte"
+                      href="/bedrijven"
                       className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
                     >
-                      Gratis offerte aanvragen
+                      Bekijk gecertificeerde bedrijven
                     </Link>
                   </li>
                 </ul>

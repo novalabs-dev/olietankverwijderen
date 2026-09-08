@@ -1,3 +1,15 @@
+/**
+ * NIET IN GEBRUIK sinds 2026-09-08.
+ *
+ * De offertebemiddeling is gestopt en /offerte importeert dit component niet
+ * meer. Het blijft bewust staan, samen met de teksten `offerteIntro`,
+ * `offerteBedankt`, `titelOfferte` en `beschrijvingOfferte` in de niche-config:
+ * als de leadstroom ooit aan een landelijke aggregator wordt doorverkocht (de
+ * openstaande optie in het besluit van 2026-09-08) is dit het formulier dat
+ * terugkomt. Weggooien zou dat pad duurder maken dan nodig.
+ *
+ * Wie hier iets aanpast: het staat live nergens meer op de site.
+ */
 "use client";
 
 import { useState } from "react";

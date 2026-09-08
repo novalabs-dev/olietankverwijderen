@@ -37,7 +37,7 @@ export async function generateMetadata({
   const title = `${bedrijf.naam} — Olietankverwijdering ${bedrijf.stad}`;
   const description =
     bedrijf.korte_beschrijving ??
-    `${bedrijf.naam} is een gecertificeerd olietankverwijderingsbedrijf in ${bedrijf.stad}. Bekijk reviews, certificeringen en vraag een offerte aan.`;
+    `${bedrijf.naam} is een gecertificeerd olietankverwijderingsbedrijf in ${bedrijf.stad}. Bekijk reviews, certificeringen en neem zelf contact op.`;
 
   return {
     title,
@@ -319,16 +319,16 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
         <aside className="lg:col-span-1">
           <div className="sticky top-8 rounded-lg border border-gray-200 bg-white p-6">
             <h3 className="text-lg font-semibold text-gray-900">
-              Offerte aanvragen
+              Bekijk bedrijven
             </h3>
             <p className="mt-1 text-sm text-gray-500">
-              Vraag gratis en vrijblijvend een offerte aan bij {bedrijf.naam}.
+              Bekijk andere gecertificeerde bedrijven in de buurt van {bedrijf.naam}.
             </p>
             <Link
-              href="/offerte"
+              href="/bedrijven"
               className="mt-4 block rounded-lg bg-blue-600 px-4 py-3 text-center text-sm font-medium text-white hover:bg-blue-700"
             >
-              Gratis offerte aanvragen
+              Bekijk gecertificeerde bedrijven
             </Link>
 
             {/* Bedrijfsgegevens */}

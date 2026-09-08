@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   getBedrijven,
   getProvinciesMetBedrijven,
+  getLaatstGeverifieerd,
   type BedrijvenFilters,
 } from "@/lib/supabase/queries/bedrijven";
 import { getProvincieFromPostcode } from "@/lib/postcode";
@@ -20,11 +21,11 @@ const BASE_URL =
 export const metadata: Metadata = {
   title: "Gecertificeerde olietankverwijderingsbedrijven in Nederland",
   description:
-    "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en vraag direct een offerte aan.",
+    "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en neem zelf contact op.",
   openGraph: {
     title: "Gecertificeerde olietankverwijderingsbedrijven in Nederland",
     description:
-      "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en vraag direct een offerte aan.",
+      "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en neem zelf contact op.",
     url: `${BASE_URL}/bedrijven`,
     type: "website",
     images: DEFAULT_OG_IMAGES,
@@ -74,10 +75,12 @@ export default async function BedrijvenPage({
     filters.minRating = Number(params.rating) || undefined;
   }
 
-  const [{ bedrijven, total, totalPages }, provincies] = await Promise.all([
-    getBedrijven(page, 24, filters),
-    getProvinciesMetBedrijven(),
-  ]);
+  const [{ bedrijven, total, totalPages }, provincies, laatstGeverifieerd] =
+    await Promise.all([
+      getBedrijven(page, 24, filters),
+      getProvinciesMetBedrijven(),
+      getLaatstGeverifieerd(),
+    ]);
 
   const hasFilters = params.postcode || params.provincie || params.certificering || params.rating;
 
@@ -124,6 +127,25 @@ export default async function BedrijvenPage({
             : `Vergelijk ${total} gecertificeerde bedrijven in Nederland`}
         </p>
       </div>
+
+      <p className="mb-6 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
+        Deze gegevens komen uit een officieel register.{" "}
+        {laatstGeverifieerd ? (
+          <>
+            De laatste controle was op{" "}
+            <time dateTime={laatstGeverifieerd}>
+              {new Date(laatstGeverifieerd).toLocaleDateString("nl-NL", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </time>
+            {"."}{" "}
+          </>
+        ) : null}
+        We werken ze niet meer bij, dus controleer het certificaat zelf voordat je
+        een bedrijf inschakelt.
+      </p>
 
       {/* Filters */}
       <div className="mb-6">

@@ -207,17 +207,16 @@ export default function CalculatorPage() {
           {/* CTA */}
           <div className="rounded-lg bg-blue-600 p-6 text-white">
             <h2 className="text-base font-semibold">
-              Direct offertes vergelijken?
+              Bedrijven bekijken?
             </h2>
             <p className="mt-2 text-sm text-blue-100">
-              Ontvang binnen 2 werkdagen vrijblijvende offertes van
-              gecertificeerde bedrijven bij jou in de buurt.
+              Bekijk de gecertificeerde bedrijven bij jou in de buurt en vraag er zelf een prijs op.
             </p>
             <Link
-              href="/offerte"
+              href="/bedrijven"
               className="mt-4 inline-block rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-blue-600 hover:bg-blue-50"
             >
-              Gratis offerte aanvragen
+              Bekijk gecertificeerde bedrijven
             </Link>
           </div>
         </aside>

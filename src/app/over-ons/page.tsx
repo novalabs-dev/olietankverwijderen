@@ -51,9 +51,7 @@ export default function OverOnsPage() {
             bedrijf werkt.
           </li>
           <li>
-            <strong>Offertes aanvragen:</strong> Via ons platform kun je gratis
-            en vrijblijvend offertes aanvragen bij meerdere bedrijven in je
-            regio.
+            <strong>Bedrijven vergelijken:</strong> Via ons overzicht vind je gecertificeerde bedrijven in je regio, met hun contactgegevens.
           </li>
           <li>
             <strong>Informeren:</strong> In onze{" "}
@@ -75,14 +73,14 @@ export default function OverOnsPage() {
           Hulp nodig bij olietankverwijdering?
         </h2>
         <p className="mt-2 text-gray-600">
-          Vraag gratis en vrijblijvend offertes aan bij gecertificeerde
+          Bekijk de gecertificeerde
           olietankverwijderaars bij jou in de buurt.
         </p>
         <Link
-          href="/offerte"
+          href="/bedrijven"
           className="mt-4 inline-block rounded-lg bg-blue-600 px-6 py-3 text-sm font-medium text-white hover:bg-blue-700"
         >
-          Gratis offerte aanvragen
+          Bekijk gecertificeerde bedrijven
         </Link>
       </div>
     </div>

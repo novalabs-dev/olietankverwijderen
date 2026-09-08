@@ -66,7 +66,7 @@ export function Footer() {
             </h3>
             <p className="mt-2 text-sm text-gray-500">
               Vind gecertificeerde olietankverwijderaars bij jou in de buurt.
-              Vergelijk bedrijven en vraag gratis offertes aan.
+              Vergelijk bedrijven en benader ze zelf.
             </p>
           </div>
           <div>
@@ -90,10 +90,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/offerte"
+                  href="/bedrijven"
                   className="text-sm text-gray-500 hover:text-gray-900"
                 >
-                  Offerte aanvragen
+                  Bekijk bedrijven
                 </Link>
               </li>
             </ul>

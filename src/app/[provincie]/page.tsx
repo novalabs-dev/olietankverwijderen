@@ -120,17 +120,17 @@ export default async function ProvinciePage({ params }: ProvinciePageProps) {
       {/* CTA */}
       <div className="mt-12 rounded-lg border border-blue-200 bg-blue-50 p-6 text-center">
         <h2 className="text-xl font-bold text-gray-900">
-          Offerte nodig voor olietankverwijdering in {provincieNaam}?
+          Bedrijf zoeken voor olietankverwijdering in {provincieNaam}?
         </h2>
         <p className="mx-auto mt-2 max-w-2xl text-sm text-gray-600">
-          Vraag gratis en vrijblijvend offertes aan bij gecertificeerde
+          Bekijk de gecertificeerde
           bedrijven in jouw regio.
         </p>
         <Link
-          href="/offerte"
+          href="/bedrijven"
           className="mt-4 inline-block rounded-lg bg-blue-600 px-6 py-3 text-sm font-medium text-white hover:bg-blue-700"
         >
-          Gratis offerte aanvragen
+          Bekijk gecertificeerde bedrijven
         </Link>
       </div>
 

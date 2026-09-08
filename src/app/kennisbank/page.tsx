@@ -109,14 +109,14 @@ export default function KennisbankPage() {
           Hulp nodig bij olietankverwijdering?
         </h2>
         <p className="mt-2 text-gray-600">
-          Vraag gratis en vrijblijvend offertes aan bij gecertificeerde
+          Bekijk de gecertificeerde
           olietankverwijderaars.
         </p>
         <Link
-          href="/offerte"
+          href="/bedrijven"
           className="mt-4 inline-block rounded-lg bg-blue-600 px-6 py-3 text-sm font-medium text-white hover:bg-blue-700"
         >
-          Gratis offerte aanvragen
+          Bekijk gecertificeerde bedrijven
         </Link>
       </div>
     </div>

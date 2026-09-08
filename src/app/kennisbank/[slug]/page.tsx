@@ -165,17 +165,17 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             {/* CTA */}
             <div className="rounded-lg border border-gray-200 bg-white p-6">
               <h3 className="text-lg font-semibold text-gray-900">
-                Offerte aanvragen
+                Bekijk bedrijven
               </h3>
               <p className="mt-1 text-sm text-gray-500">
-                Vergelijk gratis en vrijblijvend offertes van gecertificeerde
+                Vergelijk gecertificeerde
                 olietankverwijderaars bij jou in de buurt.
               </p>
               <Link
-                href="/offerte"
+                href="/bedrijven"
                 className="mt-4 block rounded-lg bg-blue-600 px-4 py-3 text-center text-sm font-medium text-white hover:bg-blue-700"
               >
-                Gratis offerte aanvragen
+                Bekijk gecertificeerde bedrijven
               </Link>
             </div>
 
@@ -203,10 +203,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 </li>
                 <li>
                   <Link
-                    href="/offerte"
+                    href="/bedrijven"
                     className="text-sm text-blue-600 hover:underline"
                   >
-                    Offerte aanvragen
+                    Bekijk bedrijven
                   </Link>
                 </li>
               </ul>

@@ -27,7 +27,7 @@ export default function PrivacyPage() {
         Privacyverklaring
       </h1>
       <p className="mt-3 text-sm text-gray-500">
-        Laatst bijgewerkt: april 2026
+        Laatst bijgewerkt: september 2026
       </p>
 
       <div className="prose prose-gray mt-8 max-w-none">
@@ -40,35 +40,41 @@ export default function PrivacyPage() {
         </p>
 
         <h2>2. Welke gegevens verzamelen wij?</h2>
-        <p>Wij verzamelen alleen gegevens die je zelf aan ons verstrekt via het offerteformulier:</p>
-        <ul>
-          <li>Naam</li>
-          <li>E-mailadres</li>
-          <li>Telefoonnummer</li>
-          <li>Adresgegevens (postcode, plaats)</li>
-          <li>Informatie over je olietankverwijderingsvraag</li>
-        </ul>
+        <p>
+          Sinds september 2026 staat er geen offerteformulier meer op deze site.
+          We vragen en bewaren daarom geen naam, e-mailadres, telefoonnummer of
+          aanvraaggegevens meer. De persoonsgegevens uit eerdere aanvragen zijn
+          verwijderd.
+        </p>
+        <p>
+          Wat we nog wel vastleggen zijn technische loggegevens (IP-adres,
+          browsertype, bezochte pagina&apos;s) voor beveiliging, en cookieloze
+          bezoekersstatistieken via Plausible waarin geen persoonsgegevens staan.
+        </p>
 
         <h2>3. Waarvoor gebruiken wij je gegevens?</h2>
-        <p>Je gegevens worden uitsluitend gebruikt om:</p>
-        <ul>
-          <li>Je offerteaanvraag door te sturen naar relevante, gecertificeerde olietankverwijderaars in je regio</li>
-          <li>Je een bevestiging te sturen van je aanvraag</li>
-          <li>Contact met je op te nemen bij vragen over je aanvraag</li>
-        </ul>
+        <p>
+          De technische loggegevens gebruiken we om de site bereikbaar en veilig
+          te houden. De grondslag daarvoor is ons gerechtvaardigd belang
+          (artikel 6 lid 1 sub f AVG). Aanvraaggegevens verwerken we niet meer,
+          omdat we geen aanvragen meer aannemen.
+        </p>
 
         <h2>4. Delen van gegevens</h2>
         <p>
-          Je gegevens worden alleen gedeeld met de olietankverwijderingsbedrijven
-          die relevant zijn voor je aanvraag. Wij verkopen je gegevens niet aan
-          derden en gebruiken ze niet voor marketingdoeleinden.
+          We delen geen persoonsgegevens met bedrijven. Tot september 2026
+          stuurden we offerteaanvragen door naar gecertificeerde bedrijven, maar
+          die dienst is gestopt. We verkopen geen gegevens aan derden en
+          gebruiken ze niet voor marketing.
         </p>
-
+        <p>
+          We werken met de volgende subverwerkers voor hosting, opslag en
+          statistiek:
+        </p>
         <h2>5. Bewaartermijn</h2>
         <p>
-          Wij bewaren je gegevens niet langer dan noodzakelijk voor het doel
-          waarvoor ze zijn verzameld. Offerteaanvragen worden maximaal 12 maanden
-          bewaard, tenzij er een lopende overeenkomst is.
+          De persoonsgegevens uit eerdere offerteaanvragen zijn in september 2026
+          verwijderd. Technische loggegevens bewaren we maximaal 6 maanden.
         </p>
 
         <h2>6. Je rechten</h2>
@@ -98,9 +104,9 @@ export default function PrivacyPage() {
           is hiervoor geen cookiebanner of toestemming vereist.
         </p>
         <p>
-          De website kan een tijdelijke functionele sessie-cookie plaatsen om
-          formulieren correct te laten werken. Daarvoor is op grond van de wet
-          ook geen toestemming nodig.
+          Sinds het offerteformulier weg is, staan er op deze site helemaal geen
+          formulieren meer, en worden er dus ook geen functionele cookies meer
+          geplaatst.
         </p>
 
         <h2>9. Contact</h2>

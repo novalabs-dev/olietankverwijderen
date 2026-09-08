@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   title:
     "Gecertificeerde Olietankverwijderaars in Nederland | Olietankverwijderen.nl",
   description:
-    "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews, certificeringen en vraag gratis offertes aan.",
+    "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews en certificeringen.",
   openGraph: {
     title: "Olietankverwijderen.nl — Vind gecertificeerde olietankverwijderaars",
     description:
-      "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews en vraag gratis offertes aan.",
+      "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews en neem zelf contact op.",
     url: BASE_URL,
     type: "website",
     images: DEFAULT_OG_IMAGES,
@@ -37,7 +37,7 @@ export default async function Home() {
     name: "Olietankverwijderen.nl",
     url: BASE_URL,
     description:
-      "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews, certificeringen en vraag gratis offertes aan.",
+      "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews en certificeringen.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -62,7 +62,7 @@ export default async function Home() {
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
             Vergelijk gecertificeerde bedrijven bij jou in de
-            buurt. Bekijk reviews en vraag gratis offertes aan.
+            buurt. Bekijk reviews en neem zelf contact op.
           </p>
           <div className="mt-8 flex flex-col items-center gap-6">
             <PostcodeSearch size="lg" className="justify-center" />
@@ -75,10 +75,10 @@ export default async function Home() {
               </Link>
               <span className="hidden text-gray-300 sm:inline">|</span>
               <Link
-                href="/offerte"
+                href="/bedrijven"
                 className="text-sm font-medium text-gray-600 hover:text-gray-900"
               >
-                Of vraag direct een gratis offerte aan
+                Of bekijk direct alle gecertificeerde bedrijven
               </Link>
             </div>
           </div>
@@ -195,11 +195,10 @@ export default async function Home() {
                 <span className="text-xl">&#128176;</span>
               </div>
               <h3 className="mt-4 text-lg font-semibold text-gray-900">
-                Gratis offertes
+                Zelf vergelijken
               </h3>
               <p className="mt-2 text-sm text-gray-600">
-                Vraag gratis en vrijblijvend offertes aan bij meerdere bedrijven
-                in jouw regio.
+                Bekijk welke gecertificeerde bedrijven actief zijn in jouw regio.
               </p>
             </div>
           </div>

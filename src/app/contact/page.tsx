@@ -37,14 +37,14 @@ export default function ContactPage() {
             Voor huiseigenaren
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Wil je een offerte aanvragen voor olietankverwijdering? Gebruik ons
-            gratis offerteformulier.
+            Zoek je een gecertificeerd bedrijf voor olietankverwijdering? Gebruik ons
+            overzicht van gecertificeerde bedrijven.
           </p>
           <Link
-            href="/offerte"
+            href="/bedrijven"
             className="mt-4 inline-block rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700"
           >
-            Offerte aanvragen
+            Bekijk bedrijven
           </Link>
         </div>
 
