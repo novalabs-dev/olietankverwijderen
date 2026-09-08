@@ -120,7 +120,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-400">
+        <div className="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
           &copy; {new Date().getFullYear()} Olietankverwijderen.nl — Alle rechten
           voorbehouden
         </div>

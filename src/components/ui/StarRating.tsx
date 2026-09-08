@@ -5,7 +5,11 @@ interface StarRatingProps {
 
 export function StarRating({ rating, maxStars = 5 }: StarRatingProps) {
   return (
-    <div className="flex items-center gap-0.5" aria-label={`${rating} van ${maxStars} sterren`}>
+    <div
+      className="flex items-center gap-0.5"
+      role="img"
+      aria-label={`${rating} van ${maxStars} sterren`}
+    >
       {Array.from({ length: maxStars }, (_, i) => {
         const filled = i < Math.floor(rating);
         const half = !filled && i < rating;
