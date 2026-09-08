@@ -82,7 +82,7 @@ export default function KennisbankPage() {
               <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-600">
                 {article.frontmatter.description}
               </p>
-              <div className="mt-4 flex items-center gap-3 text-xs text-gray-400">
+              <div className="mt-4 flex items-center gap-3 text-xs text-gray-500">
                 <span>{article.frontmatter.readingTime}</span>
                 <span>
                   {new Date(

@@ -109,7 +109,7 @@ export function BedrijfCard({ bedrijf }: BedrijfCardProps) {
               </span>
             </>
           ) : (
-            <span className="text-sm text-gray-400">Nog geen reviews</span>
+            <span className="text-sm text-gray-500">Nog geen reviews</span>
           )}
         </div>
         <span className="text-sm font-medium text-blue-600">

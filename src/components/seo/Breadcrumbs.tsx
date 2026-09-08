@@ -37,7 +37,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
           return (
             <li key={index} className="flex items-center gap-1">
               {index > 0 && (
-                <span aria-hidden="true" className="text-gray-400">
+                <span aria-hidden="true" className="text-gray-500">
                   /
                 </span>
               )}

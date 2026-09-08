@@ -309,7 +309,7 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
                     <p className="mt-1 text-sm leading-relaxed text-gray-700">
                       {review.tekst}
                     </p>
-                    <p className="mt-2 text-xs text-gray-400">
+                    <p className="mt-2 text-xs text-gray-500">
                       {new Date(review.created_at).toLocaleDateString("nl-NL", {
                         year: "numeric",
                         month: "long",

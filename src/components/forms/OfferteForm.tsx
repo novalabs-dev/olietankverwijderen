@@ -441,7 +441,7 @@ export function OfferteForm() {
             ) : (
               <span />
             )}
-            <span className="text-xs text-gray-400">
+            <span className="text-xs text-gray-500">
               {(formData.toelichting ?? "").length} / 1000
             </span>
           </div>

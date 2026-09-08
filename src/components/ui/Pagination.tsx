@@ -39,7 +39,7 @@ export function Pagination({
         {pages.map((page, i) =>
           page === "..." ? (
             <li key={`ellipsis-${i}`}>
-              <span className="flex h-10 w-10 items-center justify-center text-sm text-gray-400">
+              <span className="flex h-10 w-10 items-center justify-center text-sm text-gray-500">
                 &hellip;
               </span>
             </li>

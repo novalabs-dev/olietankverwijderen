@@ -146,7 +146,7 @@ export default function CalculatorPage() {
                 </div>
               ))}
             </dl>
-            <p className="mt-4 text-xs text-gray-400">
+            <p className="mt-4 text-xs text-gray-500">
               Prijzen incl. BTW. Bron: marktgemiddelden 2025-2026.
             </p>
           </div>
