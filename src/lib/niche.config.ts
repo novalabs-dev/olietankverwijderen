@@ -31,7 +31,7 @@ export const nicheConfig = {
 
   // Certificeringen
   certificeringen: [
-    { code: "BRL-7000", naam: "BRL SIKB 7000 - Uitvoering van (water)bodemsaneringen" }
+    { code: "BRL-7000", naam: "Code in het bestand. Tanksanering: BRL K902 of BRL K904, erkenningenregister Bodem+ (Rijkswaterstaat)." }
   ],
 
   // Specialisaties

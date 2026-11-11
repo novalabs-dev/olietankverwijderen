@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   getBedrijven,
   getProvinciesMetBedrijven,
-  getLaatstGeverifieerd,
   type BedrijvenFilters,
 } from "@/lib/supabase/queries/bedrijven";
 import { getProvincieFromPostcode } from "@/lib/postcode";
@@ -14,6 +13,8 @@ import { BedrijvenFilters as FilterBar } from "@/components/search/BedrijvenFilt
 import { Pagination } from "@/components/ui/Pagination";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
+import { ErkenningenregisterLink } from "@/components/content/ErkenningenregisterLink";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 import { reviewWeergave } from "@/lib/reviews";
 
@@ -78,12 +79,10 @@ export default async function BedrijvenPage({
     filters.minRating = Number(params.rating) || undefined;
   }
 
-  const [{ bedrijven, total, totalPages }, provincies, laatstGeverifieerd] =
-    await Promise.all([
-      getBedrijven(page, 24, filters),
-      getProvinciesMetBedrijven(),
-      getLaatstGeverifieerd(),
-    ]);
+  const [{ bedrijven, total, totalPages }, provincies] = await Promise.all([
+    getBedrijven(page, 24, filters),
+    getProvinciesMetBedrijven(),
+  ]);
 
   const hasFilters =
     params.postcode ||
@@ -138,22 +137,12 @@ export default async function BedrijvenPage({
       </div>
 
       <p className="mb-6 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
-        Deze gegevens komen uit een officieel register.{" "}
-        {laatstGeverifieerd ? (
-          <>
-            De laatste controle was op{" "}
-            <time dateTime={laatstGeverifieerd}>
-              {new Date(laatstGeverifieerd).toLocaleDateString("nl-NL", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </time>
-            {"."}{" "}
-          </>
-        ) : null}
-        We werken ze niet meer bij, dus controleer het certificaat zelf voordat je
-        een bedrijf inschakelt.
+        Deze bedrijven komen uit het <ErkenningenregisterLink />, peildatum{" "}
+        {ERKENNINGENREGISTER.peildatumLabel}. Voor tanksanering gaat
+        het om {ERKENNINGENREGISTER.certificaten}. De gegevens worden niet
+        automatisch bijgewerkt. We stellen niet apart vast of een bedrijf nu
+        actief saneert. Controleer de erkenning zelf voordat je een bedrijf
+        inschakelt.
       </p>
 
       {/* Filters */}

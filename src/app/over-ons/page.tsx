@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ErkenningenregisterLink } from "@/components/content/ErkenningenregisterLink";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 
 export const metadata: Metadata = {
   title: "Over ons",
@@ -46,9 +48,9 @@ export default function OverOnsPage() {
         <h2>Wat wij doen</h2>
         <ul>
           <li>
-            <strong>Vergelijken:</strong> Wij tonen uitsluitend BRL SIKB 7000
-            gecertificeerde bedrijven, zodat je zeker weet dat je met een erkend
-            bedrijf werkt.
+            <strong>Vergelijken:</strong> Het overzicht bevat bedrijven die op{" "}
+            {ERKENNINGENREGISTER.peildatumLabel} in het <ErkenningenregisterLink />{" "}
+            stonden, voor tanksanering onder {ERKENNINGENREGISTER.certificaten}.
           </li>
           <li>
             <strong>Bedrijven vergelijken:</strong> Via ons overzicht vind je gecertificeerde bedrijven in je regio, met hun contactgegevens.
@@ -60,11 +62,17 @@ export default function OverOnsPage() {
           </li>
         </ul>
 
-        <h2>Alleen gecertificeerde bedrijven</h2>
+        <h2>Erkenningen</h2>
         <p>
-          Alle bedrijven op ons platform beschikken over de vereiste BRL SIKB
-          7000 certificering voor bodemsanering en tankverwijdering, en voldoen
-          aan de strenge eisen van de Nederlandse wetgeving.
+          We hebben de vermeldingen gecontroleerd in het <ErkenningenregisterLink />.
+          Peildatum: {ERKENNINGENREGISTER.peildatumLabel}. De gegevens worden
+          niet automatisch bijgewerkt. We stellen niet apart vast of een bedrijf
+          op dit moment actief tanks saneert. Controleer de erkenning zelf in
+          het register voordat je een bedrijf inschakelt.
+        </p>
+        <p>
+          Plaatsing is gratis. Bedrijven betalen niet voor een vermelding of
+          voor een hogere positie.
         </p>
       </div>
 

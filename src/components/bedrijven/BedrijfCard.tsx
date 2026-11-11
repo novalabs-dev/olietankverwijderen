@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { BedrijfCardData } from "@/lib/types";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { CertificeringBadge } from "./CertificeringBadge";
 import { ReviewSamenvatting } from "@/components/ui/ReviewSamenvatting";
 import { reviewWeergave } from "@/lib/reviews";
@@ -29,7 +30,7 @@ export function BedrijfCard({ bedrijf }: BedrijfCardProps) {
             {bedrijf.is_gecertificeerd && (
               <span
                 className="inline-flex shrink-0 items-center gap-0.5 rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700"
-                title="Gecertificeerd via SIKB register"
+                title={`Stond op ${ERKENNINGENREGISTER.peildatumLabel} in het ${ERKENNINGENREGISTER.naam}. Niet automatisch bijgewerkt. Actief saneren is niet apart vastgesteld.`}
               >
                 <svg className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                   <path
@@ -38,7 +39,7 @@ export function BedrijfCard({ bedrijf }: BedrijfCardProps) {
                     clipRule="evenodd"
                   />
                 </svg>
-                Gecertificeerd
+                Erkend (2026)
               </span>
             )}
           </div>

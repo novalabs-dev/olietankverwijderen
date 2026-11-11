@@ -10,7 +10,7 @@ interface BedrijvenFiltersProps {
 
 const CERTIFICERINGEN = [
   { value: "", label: "Alle certificeringen" },
-  { value: "BRL-7000", label: "BRL SIKB 7000 (Bodemsanering)" },
+  { value: "BRL-7000", label: "BRL-7000" },
 ];
 
 const RATING_OPTIONS = [

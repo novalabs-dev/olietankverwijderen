@@ -1,4 +1,5 @@
 import type { BedrijfCertificering } from "@/lib/types";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 
 interface CertificeringBadgeProps {
   certificering: BedrijfCertificering;
@@ -20,6 +21,7 @@ export function CertificeringBadge({
   return (
     <span
       className={`inline-flex items-center rounded-full border font-medium ${colorClasses} ${sizeClasses}`}
+      title={`Code uit ons bestand. Herkomst: ${ERKENNINGENREGISTER.naam}, peildatum ${ERKENNINGENREGISTER.peildatumLabel}. Voor tanksanering: ${ERKENNINGENREGISTER.certificaten}. Niet automatisch bijgewerkt.`}
     >
       {code}
     </span>
