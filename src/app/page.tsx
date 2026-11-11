@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   title:
     "Gecertificeerde Olietankverwijderaars in Nederland | Olietankverwijderen.nl",
   description:
-    "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews en certificeringen.",
+    "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk certificeringen en neem zelf contact op.",
   openGraph: {
     title: "Olietankverwijderen.nl — Vind gecertificeerde olietankverwijderaars",
     description:
-      "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews en neem zelf contact op.",
+      "Vergelijk gecertificeerde olietankverwijderaars in Nederland en neem zelf contact op.",
     url: BASE_URL,
     type: "website",
     images: DEFAULT_OG_IMAGES,
@@ -37,7 +37,7 @@ export default async function Home() {
     name: "Olietankverwijderen.nl",
     url: BASE_URL,
     description:
-      "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk reviews en certificeringen.",
+      "Vergelijk gecertificeerde olietankverwijderaars in Nederland. Bekijk certificeringen en neem zelf contact op.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -62,7 +62,7 @@ export default async function Home() {
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
             Vergelijk gecertificeerde bedrijven bij jou in de
-            buurt. Bekijk reviews en neem zelf contact op.
+            buurt en neem zelf contact op.
           </p>
           <div className="mt-8 flex flex-col items-center gap-6">
             <PostcodeSearch size="lg" className="justify-center" />
@@ -186,7 +186,7 @@ export default async function Home() {
                 Vergelijk
               </h3>
               <p className="mt-2 text-sm text-gray-600">
-                Bekijk reviews, specialisaties en prijsindicaties. Maak een
+                Bekijk specialisaties en contactgegevens. Maak een
                 weloverwogen keuze.
               </p>
             </div>
