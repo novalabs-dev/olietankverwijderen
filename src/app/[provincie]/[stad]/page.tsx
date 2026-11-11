@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BedrijfCard } from "@/components/bedrijven/BedrijfCard";
+import { ErkenningenregisterLink } from "@/components/content/ErkenningenregisterLink";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBedrijvenByStad } from "@/lib/supabase/queries/steden";
@@ -11,6 +12,7 @@ import {
   getNabijSteden,
   getStedenByProvincie,
 } from "@/lib/data/steden";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
@@ -239,11 +241,13 @@ export default async function StadPage({ params }: StadPageProps) {
               </h2>
               <div className="mt-3 space-y-3 text-gray-600 leading-relaxed">
                 <p>
-                  Olietankverwijdering is in Nederland streng gereguleerd. Alleen
-                  bedrijven met een BRL SIKB 7000 certificering mogen olietanks
-                  verwijderen en de bodem saneren. Deze certificering garandeert
-                  dat het bedrijf voldoet aan alle veiligheids- en milieueisen
-                  voor tankverwijdering en bodemsanering.
+                  Olietankverwijdering is in Nederland gereguleerd. Voor
+                  tanksanering is een erkenning voor {ERKENNINGENREGISTER.certificaten}{" "}
+                  nodig. Die erkenning staat in het <ErkenningenregisterLink />.
+                  De bedrijven op deze site komen uit dat register, met peildatum{" "}
+                  {ERKENNINGENREGISTER.peildatumLabel}. We werken de gegevens niet
+                  automatisch bij en stellen niet apart vast of een bedrijf nu
+                  actief saneert. Controleer de erkenning daarom zelf.
                 </p>
                 <p>
                   Het is verboden om zelf een olietank te verwijderen. Een

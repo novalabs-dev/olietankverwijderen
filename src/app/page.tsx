@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getBedrijven } from "@/lib/supabase/queries/bedrijven";
 import { BedrijfCard } from "@/components/bedrijven/BedrijfCard";
+import { ErkenningenregisterLink } from "@/components/content/ErkenningenregisterLink";
 import { PostcodeSearch } from "@/components/search/PostcodeSearch";
 import JsonLd from "@/components/seo/JsonLd";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
@@ -171,11 +173,14 @@ export default async function Home() {
                 <span className="text-xl">&#9989;</span>
               </div>
               <h3 className="mt-4 text-lg font-semibold text-gray-900">
-                Gecertificeerd
+                Erkenningenregister
               </h3>
               <p className="mt-2 text-sm text-gray-600">
-                Alleen gecertificeerde bedrijven. Geverifieerd
-                via het SIKB register.
+                Bedrijven uit het <ErkenningenregisterLink />. Voor tanksanering
+                gaat het om {ERKENNINGENREGISTER.certificaten}. Peildatum{" "}
+                {ERKENNINGENREGISTER.peildatumLabel}. Niet automatisch
+                bijgewerkt. We stellen niet apart vast of een bedrijf nu actief
+                saneert.
               </p>
             </div>
             <div className="text-center">

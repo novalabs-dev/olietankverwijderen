@@ -6,10 +6,12 @@ import {
   getBedrijfSlugs,
 } from "@/lib/supabase/queries/bedrijven";
 import { CertificeringBadge } from "@/components/bedrijven/CertificeringBadge";
+import { ErkenningenregisterLink } from "@/components/content/ErkenningenregisterLink";
 import { StarRating } from "@/components/ui/StarRating";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import type { BedrijfMetRelaties, Review } from "@/lib/types";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
@@ -175,16 +177,14 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
 
       {/* Verified banner */}
       {bedrijf.is_gecertificeerd && (
-        <div className="mb-6 flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-3">
-          <svg className="h-5 w-5 shrink-0 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-            <path
-              fillRule="evenodd"
-              d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75zm-2.546-4.46a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <p className="text-sm text-green-800">
-            <span className="font-medium">Geverifieerd bedrijf</span> — Certificeringen gecontroleerd via het BRL SIKB 7000 register
+        <div className="mb-6 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
+          <p className="text-sm text-gray-700">
+            <span className="font-medium">Erkenning gecontroleerd</span> in het{" "}
+            <ErkenningenregisterLink />, peildatum {ERKENNINGENREGISTER.peildatumLabel}.
+            Voor tanksanering
+            gaat het om {ERKENNINGENREGISTER.certificaten}. De gegevens worden
+            niet automatisch bijgewerkt. We stellen niet apart vast of dit
+            bedrijf nu actief saneert.
           </p>
         </div>
       )}
