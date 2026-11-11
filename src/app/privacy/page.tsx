@@ -1,11 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import JsonLd from "@/components/seo/JsonLd";
+import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
+import { UITGEVER } from "@/lib/uitgever";
+
+const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
+
+const DESCRIPTION =
+  "Privacyverklaring van Olietankverwijderen.nl. AckNova Automations in Harlingen is verwerkingsverantwoordelijke.";
 
 export const metadata: Metadata = {
   title: "Privacyverklaring",
-  description:
-    "Lees hoe Olietankverwijderen.nl omgaat met je persoonsgegevens. Wij respecteren je privacy en verwerken gegevens alleen voor het aanvragen van offertes.",
+  description: DESCRIPTION,
+  openGraph: {
+    title: "Privacyverklaring",
+    description: DESCRIPTION,
+    url: `${BASE_URL}/privacy`,
+    type: "website",
+    images: DEFAULT_OG_IMAGES,
+  },
   alternates: {
     canonical: "/privacy",
   },
@@ -17,8 +32,18 @@ export default function PrivacyPage() {
     { label: "Privacyverklaring" },
   ];
 
+  const webPageJsonLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Privacyverklaring",
+    description: DESCRIPTION,
+    url: `${BASE_URL}/privacy`,
+    inLanguage: "nl-NL",
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+      <JsonLd data={webPageJsonLd} />
       <div className="mb-6">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
@@ -27,16 +52,25 @@ export default function PrivacyPage() {
         Privacyverklaring
       </h1>
       <p className="mt-3 text-sm text-gray-500">
-        Laatst bijgewerkt: september 2026
+        Laatst bijgewerkt: 11 november 2026
       </p>
 
       <div className="prose prose-gray mt-8 max-w-none">
         <h2>1. Wie zijn wij?</h2>
         <p>
-          Olietankverwijderen.nl is een vergelijkingsplatform dat huiseigenaren en
-          bedrijven helpt om gecertificeerde olietankverwijderaars te vinden. Wij
-          zijn verantwoordelijk voor de verwerking van je persoonsgegevens zoals
-          beschreven in deze privacyverklaring.
+          {UITGEVER.site} is een website van {UITGEVER.organisatie},{" "}
+          {UITGEVER.straat}, {UITGEVER.postcode} {UITGEVER.plaats}, KvK{" "}
+          {UITGEVER.kvk}. {UITGEVER.organisatie} is de verwerkingsverantwoordelijke
+          voor persoonsgegevens die via deze website worden verwerkt.
+        </p>
+        <p>
+          E-mail:{" "}
+          <a
+            href={`mailto:${UITGEVER.email}`}
+            className="text-blue-600 hover:text-blue-800"
+          >
+            {UITGEVER.email}
+          </a>
         </p>
 
         <h2>2. Welke gegevens verzamelen wij?</h2>
@@ -67,9 +101,29 @@ export default function PrivacyPage() {
           die dienst is gestopt. We verkopen geen gegevens aan derden en
           gebruiken ze niet voor marketing.
         </p>
+        <p>Voor het draaien van de site gebruiken we deze verwerkers:</p>
+        <ul>
+          <li>
+            <strong>Netlify</strong> — hosting. De site wordt via Netlify
+            gepubliceerd. Netlify verwerkt technische verbindingsgegevens, zoals
+            een IP-adres, in serverlogs.
+          </li>
+          <li>
+            <strong>Supabase</strong> — database met de bedrijfsgegevens die op
+            de site staan, waaronder adres en contactgegevens van bedrijven. We
+            slaan geen aanvragen van bezoekers op in deze database.
+          </li>
+          <li>
+            <strong>Plausible</strong> — cookieloze bezoekersstatistiek. Het
+            script wordt geladen van plausible.io. Plausible werkt zonder cookies
+            en zonder persoonlijke profielen.
+          </li>
+        </ul>
         <p>
-          We werken met de volgende subverwerkers voor hosting, opslag en
-          statistiek:
+          We sturen geen gegevens van bezoekers naar een e-mail- of betaaldienst.
+          Een mail naar {UITGEVER.email} opent in je eigen mailprogramma.
+          Lettertypen worden bij het publiceren van de site op onze eigen hosting
+          gezet. Een bezoek maakt daarvoor geen verbinding met Google.
         </p>
         <h2>5. Bewaartermijn</h2>
         <p>
@@ -111,12 +165,19 @@ export default function PrivacyPage() {
 
         <h2>9. Contact</h2>
         <p>
-          Heb je vragen over deze privacyverklaring of over de verwerking van je
-          gegevens? Neem dan{" "}
+          Vragen over deze verklaring kun je sturen naar{" "}
+          <a
+            href={`mailto:${UITGEVER.email}`}
+            className="text-blue-600 hover:text-blue-800"
+          >
+            {UITGEVER.email}
+          </a>{" "}
+          of via de{" "}
           <Link href="/contact" className="text-blue-600 hover:text-blue-800">
-            contact
-          </Link>{" "}
-          met ons op.
+            contactpagina
+          </Link>
+          . {UITGEVER.organisatie}, {UITGEVER.straat}, {UITGEVER.postcode}{" "}
+          {UITGEVER.plaats}.
         </p>
       </div>
     </div>

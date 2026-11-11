@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { STEDEN } from "@/lib/data/steden";
+import { COLOFON, UITGEVER } from "@/lib/uitgever";
 
 /** Group cities by province for the footer */
 function getProvinciesMetSteden() {
@@ -117,12 +118,39 @@ export function Footer() {
                   Over ons
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-sm text-gray-500 hover:text-gray-900"
+                >
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/hoe-werkt-de-vergelijking"
+                  className="text-sm text-gray-500 hover:text-gray-900"
+                >
+                  Hoe werkt de vergelijking
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} Olietankverwijderen.nl — Alle rechten
-          voorbehouden
+        <div className="mt-8 border-t border-gray-200 pt-8 text-center text-sm text-gray-700">
+          <p>{COLOFON}</p>
+          <p className="mt-2">
+            E-mail:{" "}
+            <a
+              href={`mailto:${UITGEVER.email}`}
+              className="text-blue-600 hover:text-blue-800"
+            >
+              {UITGEVER.email}
+            </a>
+          </p>
+          <p className="mt-4 text-gray-500">
+            &copy; {new Date().getFullYear()} Olietankverwijderen.nl
+          </p>
         </div>
       </div>
     </footer>
