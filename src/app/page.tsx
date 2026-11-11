@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getBedrijven } from "@/lib/supabase/queries/bedrijven";
-import { BedrijfCard } from "@/components/bedrijven/BedrijfCard";
 import { PostcodeSearch } from "@/components/search/PostcodeSearch";
 import JsonLd from "@/components/seo/JsonLd";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
@@ -27,10 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
-  const { bedrijven, total } = await getBedrijven(1, 3);
-  const featuredBedrijven = bedrijven;
-
+export default function Home() {
   const websiteJsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -85,29 +80,33 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured bedrijven */}
-      {featuredBedrijven.length > 0 && (
-        <section className="py-12 sm:py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <h2 className="text-2xl font-bold text-gray-900">
-                Uitgelichte bedrijven
-              </h2>
-              <Link
-                href="/bedrijven"
-                className="text-sm font-medium text-blue-600 hover:text-blue-800"
-              >
-                Bekijk alle {total} bedrijven &rarr;
-              </Link>
-            </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredBedrijven.map((bedrijf) => (
-                <BedrijfCard key={bedrijf.id} bedrijf={bedrijf} />
-              ))}
-            </div>
+      {/* Neutraal blok: geen uitgelichte of betaalde selectie */}
+      <section className="py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900">
+            Bedrijven in het overzicht
+          </h2>
+          <p className="mt-3 max-w-2xl text-gray-600">
+            We lichten geen bedrijven uit. Het overzicht staat op alfabetische
+            volgorde van de bedrijfsnaam. Opname is gratis en niemand betaalt
+            voor een hogere plek.
+          </p>
+          <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <Link
+              href="/bedrijven"
+              className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-700"
+            >
+              Bekijk alle bedrijven
+            </Link>
+            <Link
+              href="/hoe-werkt-de-vergelijking"
+              className="text-sm font-medium text-blue-600 hover:text-blue-800"
+            >
+              Hoe werkt de vergelijking?
+            </Link>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Kennisbank sectie */}
       <section className="py-12 sm:py-16">

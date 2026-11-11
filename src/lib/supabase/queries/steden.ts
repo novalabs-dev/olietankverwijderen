@@ -4,6 +4,10 @@ import type { BedrijfCardData } from "@/lib/types";
 /**
  * Get published companies that serve a given city.
  *
+ * Order is alphabetical by name (then id), same as the national list.
+ * Do not sort on is_premium or gemiddelde_rating while review scores are hidden.
+ * If the order changes, update /hoe-werkt-de-vergelijking in the same change.
+ *
  * Strategy (in order of specificity):
  * 1. Companies linked via bedrijf_werkgebieden junction table
  * 2. Companies whose registered `stad` field matches the city name
@@ -48,8 +52,8 @@ export async function getBedrijvenByStad(
       .eq("is_published", true)
       .eq("niche", "olietank")
       .in("id", bedrijfIds)
-      .order("is_premium", { ascending: false })
-      .order("gemiddelde_rating", { ascending: false })
+      .order("naam", { ascending: true })
+      .order("id", { ascending: true })
       .limit(limit);
 
     if (data && data.length > 0) {
@@ -69,8 +73,8 @@ export async function getBedrijvenByStad(
       .eq("is_published", true)
       .eq("niche", "olietank")
       .ilike("stad", stadNaam)
-      .order("is_premium", { ascending: false })
-      .order("gemiddelde_rating", { ascending: false })
+      .order("naam", { ascending: true })
+      .order("id", { ascending: true })
       .limit(limit);
 
     if (stadBedrijven && stadBedrijven.length > 0) {
@@ -89,8 +93,8 @@ export async function getBedrijvenByStad(
     .eq("is_published", true)
     .eq("niche", "olietank")
     .eq("provincie", provincieNaam)
-    .order("is_premium", { ascending: false })
-    .order("gemiddelde_rating", { ascending: false })
+    .order("naam", { ascending: true })
+    .order("id", { ascending: true })
     .limit(limit);
 
   return {

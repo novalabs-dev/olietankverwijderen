@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BedrijfCard } from "@/components/bedrijven/BedrijfCard";
+import { VergelijkingToelichting } from "@/components/bedrijven/VergelijkingToelichting";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBedrijvenByStad } from "@/lib/supabase/queries/steden";
@@ -156,6 +157,8 @@ export default async function StadPage({ params }: StadPageProps) {
               ? `Er zijn nog geen bedrijven specifiek voor ${stad.naam} geregistreerd. Hieronder vind je bedrijven actief in ${stad.provincieNaam}.`
               : `${total} gecertificeerde ${total === 1 ? "bedrijf" : "bedrijven"} actief in ${stad.naam} en omgeving`}
           </p>
+
+          <VergelijkingToelichting />
 
           {bedrijven.length > 0 ? (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
