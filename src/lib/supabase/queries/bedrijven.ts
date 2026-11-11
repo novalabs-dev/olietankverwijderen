@@ -81,8 +81,12 @@ export async function getBedrijven(
     query = query.in("id", certFilterIds);
   }
 
+  // Alfabetisch op naam zolang reviewscores niet getoond worden.
+  // Niet sorteren op gemiddelde_rating of is_premium: niemand betaalt voor een plek.
+  // Wijzigt de volgorde, werk dan ook /hoe-werkt-de-vergelijking bij.
   const { data, error, count } = await query
-    .order("gemiddelde_rating", { ascending: false })
+    .order("naam", { ascending: true })
+    .order("id", { ascending: true })
     .range(from, to);
 
   if (error) {
@@ -181,26 +185,4 @@ export async function getBedrijfSlugs(): Promise<string[]> {
   }
 
   return data.map((b) => b.slug);
-}
-
-/**
- * Datum waarop de bedrijfsgegevens voor het laatst tegen de bron zijn
- * gecontroleerd. Wordt op /bedrijven getoond: de verrijking draait sinds
- * 2026-09-08 niet meer, dus de bezoeker moet kunnen zien hoe vers dit is.
- */
-export async function getLaatstGeverifieerd(): Promise<string | null> {
-  const supabase = await createClient();
-  if (!supabase) return null;
-
-  const { data } = await supabase
-    .from("bedrijven")
-    .select("data_verified_at")
-    .eq("is_published", true)
-    .eq("niche", "olietank")
-    .not("data_verified_at", "is", null)
-    .order("data_verified_at", { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
-  return data?.data_verified_at ?? null;
 }

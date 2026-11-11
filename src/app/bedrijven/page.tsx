@@ -4,16 +4,19 @@ import Link from "next/link";
 import {
   getBedrijven,
   getProvinciesMetBedrijven,
-  getLaatstGeverifieerd,
   type BedrijvenFilters,
 } from "@/lib/supabase/queries/bedrijven";
 import { getProvincieFromPostcode } from "@/lib/postcode";
 import { BedrijfCard } from "@/components/bedrijven/BedrijfCard";
+import { VergelijkingToelichting } from "@/components/bedrijven/VergelijkingToelichting";
 import { BedrijvenFilters as FilterBar } from "@/components/search/BedrijvenFilters";
 import { Pagination } from "@/components/ui/Pagination";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
+import { ErkenningenregisterLink } from "@/components/content/ErkenningenregisterLink";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
+import { reviewWeergave } from "@/lib/reviews";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -21,11 +24,11 @@ const BASE_URL =
 export const metadata: Metadata = {
   title: "Gecertificeerde olietankverwijderingsbedrijven in Nederland",
   description:
-    "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en neem zelf contact op.",
+    "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk certificeringen en neem zelf contact op.",
   openGraph: {
     title: "Gecertificeerde olietankverwijderingsbedrijven in Nederland",
     description:
-      "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en neem zelf contact op.",
+      "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk certificeringen en neem zelf contact op.",
     url: `${BASE_URL}/bedrijven`,
     type: "website",
     images: DEFAULT_OG_IMAGES,
@@ -71,18 +74,21 @@ export default async function BedrijvenPage({
   if (params.certificering) {
     filters.certificering = params.certificering;
   }
-  if (params.rating) {
+  // Ignore ?rating= while scores are hidden, so a link cannot reorder or filter on them.
+  if (params.rating && reviewWeergave.zichtbaar) {
     filters.minRating = Number(params.rating) || undefined;
   }
 
-  const [{ bedrijven, total, totalPages }, provincies, laatstGeverifieerd] =
-    await Promise.all([
-      getBedrijven(page, 24, filters),
-      getProvinciesMetBedrijven(),
-      getLaatstGeverifieerd(),
-    ]);
+  const [{ bedrijven, total, totalPages }, provincies] = await Promise.all([
+    getBedrijven(page, 24, filters),
+    getProvinciesMetBedrijven(),
+  ]);
 
-  const hasFilters = params.postcode || params.provincie || params.certificering || params.rating;
+  const hasFilters =
+    params.postcode ||
+    params.provincie ||
+    params.certificering ||
+    (reviewWeergave.zichtbaar && params.rating);
 
   const itemListJsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -103,7 +109,9 @@ export default async function BedrijvenPage({
   if (params.postcode) paginationParams.set("postcode", params.postcode);
   if (params.provincie) paginationParams.set("provincie", params.provincie);
   if (params.certificering) paginationParams.set("certificering", params.certificering);
-  if (params.rating) paginationParams.set("rating", params.rating);
+  if (params.rating && reviewWeergave.zichtbaar) {
+    paginationParams.set("rating", params.rating);
+  }
   const filterQuery = paginationParams.toString();
   const paginationBase = filterQuery
     ? `/bedrijven?${filterQuery}`
@@ -129,22 +137,12 @@ export default async function BedrijvenPage({
       </div>
 
       <p className="mb-6 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-600">
-        Deze gegevens komen uit een officieel register.{" "}
-        {laatstGeverifieerd ? (
-          <>
-            De laatste controle was op{" "}
-            <time dateTime={laatstGeverifieerd}>
-              {new Date(laatstGeverifieerd).toLocaleDateString("nl-NL", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </time>
-            {"."}{" "}
-          </>
-        ) : null}
-        We werken ze niet meer bij, dus controleer het certificaat zelf voordat je
-        een bedrijf inschakelt.
+        Deze bedrijven komen uit het <ErkenningenregisterLink />, peildatum{" "}
+        {ERKENNINGENREGISTER.peildatumLabel}. Voor tanksanering gaat
+        het om {ERKENNINGENREGISTER.certificaten}. De gegevens worden niet
+        automatisch bijgewerkt. We stellen niet apart vast of een bedrijf nu
+        actief saneert. Controleer de erkenning zelf voordat je een bedrijf
+        inschakelt.
       </p>
 
       {/* Filters */}
@@ -153,6 +151,8 @@ export default async function BedrijvenPage({
           <FilterBar provincies={provincies} />
         </Suspense>
       </div>
+
+      <VergelijkingToelichting />
 
       {bedrijven.length === 0 ? (
         <div className="rounded-lg border border-gray-200 bg-gray-50 p-8 text-center">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { nicheConfig } from "@/lib/niche.config";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 /**
@@ -13,9 +14,9 @@ import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
  */
 
 const REGISTER = {
-  certificaat: "de BRL K902- of K904-erkenning",
+  certificaat: ERKENNINGENREGISTER.certificatenZin,
   naam: "het register van erkende bodemintermediairs van Bodem+",
-  url: "https://www.bodemplus.nl/onderwerpen/bodem-ondergrond/kwalibo/erkende-bodemintermediairs/",
+  url: ERKENNINGENREGISTER.url,
 };
 
 const TITEL = `Offerte aanvragen bij ${nicheConfig.siteNaam}`;
@@ -93,8 +94,10 @@ export default function OffertePage() {
           <div>
             <p className="font-medium text-gray-900">Controleer het certificaat</p>
             <p className="mt-1 text-sm text-gray-600">
-              Onze gegevens komen uit een officieel register, maar ze worden niet
-              meer bijgewerkt. Controleer {REGISTER.certificaat} daarom zelf in{" "}
+              Onze gegevens komen uit een officieel register. Peildatum{" "}
+              {ERKENNINGENREGISTER.peildatumLabel}. Ze worden niet automatisch
+              bijgewerkt, en we stellen niet apart vast of een bedrijf nu actief
+              saneert. Controleer {REGISTER.certificaat} daarom zelf in{" "}
               <a
                 href={REGISTER.url}
                 target="_blank"

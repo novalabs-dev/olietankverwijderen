@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { BedrijfCardData } from "@/lib/types";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { CertificeringBadge } from "./CertificeringBadge";
-import { StarRating } from "@/components/ui/StarRating";
+import { ReviewSamenvatting } from "@/components/ui/ReviewSamenvatting";
+import { reviewWeergave } from "@/lib/reviews";
 
 interface BedrijfCardProps {
   bedrijf: BedrijfCardData;
@@ -28,7 +30,7 @@ export function BedrijfCard({ bedrijf }: BedrijfCardProps) {
             {bedrijf.is_gecertificeerd && (
               <span
                 className="inline-flex shrink-0 items-center gap-0.5 rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700"
-                title="Gecertificeerd via SIKB register"
+                title={`Stond op ${ERKENNINGENREGISTER.peildatumLabel} in het ${ERKENNINGENREGISTER.naam}. Niet automatisch bijgewerkt. Actief saneren is niet apart vastgesteld.`}
               >
                 <svg className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                   <path
@@ -37,7 +39,7 @@ export function BedrijfCard({ bedrijf }: BedrijfCardProps) {
                     clipRule="evenodd"
                   />
                 </svg>
-                Gecertificeerd
+                Erkend (2026)
               </span>
             )}
           </div>
@@ -95,24 +97,17 @@ export function BedrijfCard({ bedrijf }: BedrijfCardProps) {
         )}
       </div>
 
-      {/* Rating + CTA */}
-      <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
-        <div className="flex items-center gap-2">
-          {bedrijf.gemiddelde_rating > 0 ? (
-            <>
-              <StarRating rating={bedrijf.gemiddelde_rating} />
-              <span className="text-sm font-medium text-gray-700">
-                {Number(bedrijf.gemiddelde_rating).toFixed(1)}
-              </span>
-              <span className="text-sm text-gray-500">
-                ({bedrijf.aantal_reviews} {bedrijf.aantal_reviews === 1 ? "review" : "reviews"})
-              </span>
-            </>
-          ) : (
-            <span className="text-sm text-gray-500">Nog geen reviews</span>
-          )}
-        </div>
-        <span className="text-sm font-medium text-blue-600">
+      {/* Rating + CTA. Scores stay hidden while reviewWeergave.zichtbaar is false. */}
+      <div
+        className={`mt-4 flex items-center gap-3 border-t border-gray-100 pt-3 ${
+          reviewWeergave.zichtbaar ? "justify-between" : "justify-end"
+        }`}
+      >
+        <ReviewSamenvatting
+          rating={bedrijf.gemiddelde_rating}
+          aantal={bedrijf.aantal_reviews}
+        />
+        <span className="shrink-0 text-sm font-medium text-blue-600">
           Bekijk &rarr;
         </span>
       </div>

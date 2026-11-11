@@ -91,6 +91,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/hoe-werkt-de-vergelijking"
+                  className="text-sm text-gray-500 hover:text-gray-900"
+                >
+                  Hoe werkt de vergelijking
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/bedrijven"
                   className="text-sm text-gray-500 hover:text-gray-900"
                 >
@@ -124,14 +132,6 @@ export function Footer() {
                   className="text-sm text-gray-500 hover:text-gray-900"
                 >
                   Privacy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/hoe-werkt-de-vergelijking"
-                  className="text-sm text-gray-500 hover:text-gray-900"
-                >
-                  Hoe werkt de vergelijking
                 </Link>
               </li>
             </ul>
