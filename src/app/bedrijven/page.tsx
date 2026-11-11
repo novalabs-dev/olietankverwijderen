@@ -15,6 +15,7 @@ import { Pagination } from "@/components/ui/Pagination";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
+import { reviewWeergave } from "@/lib/reviews";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL ?? "https://olietankverwijderen.nl";
@@ -22,11 +23,11 @@ const BASE_URL =
 export const metadata: Metadata = {
   title: "Gecertificeerde olietankverwijderingsbedrijven in Nederland",
   description:
-    "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en neem zelf contact op.",
+    "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk certificeringen en neem zelf contact op.",
   openGraph: {
     title: "Gecertificeerde olietankverwijderingsbedrijven in Nederland",
     description:
-      "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk reviews, certificeringen en neem zelf contact op.",
+      "Vergelijk gecertificeerde olietankverwijderaars en saneringsbedrijven. Bekijk certificeringen en neem zelf contact op.",
     url: `${BASE_URL}/bedrijven`,
     type: "website",
     images: DEFAULT_OG_IMAGES,
@@ -72,7 +73,8 @@ export default async function BedrijvenPage({
   if (params.certificering) {
     filters.certificering = params.certificering;
   }
-  if (params.rating) {
+  // Ignore ?rating= while scores are hidden, so a link cannot reorder or filter on them.
+  if (params.rating && reviewWeergave.zichtbaar) {
     filters.minRating = Number(params.rating) || undefined;
   }
 
@@ -83,7 +85,11 @@ export default async function BedrijvenPage({
       getLaatstGeverifieerd(),
     ]);
 
-  const hasFilters = params.postcode || params.provincie || params.certificering || params.rating;
+  const hasFilters =
+    params.postcode ||
+    params.provincie ||
+    params.certificering ||
+    (reviewWeergave.zichtbaar && params.rating);
 
   const itemListJsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -104,7 +110,9 @@ export default async function BedrijvenPage({
   if (params.postcode) paginationParams.set("postcode", params.postcode);
   if (params.provincie) paginationParams.set("provincie", params.provincie);
   if (params.certificering) paginationParams.set("certificering", params.certificering);
-  if (params.rating) paginationParams.set("rating", params.rating);
+  if (params.rating && reviewWeergave.zichtbaar) {
+    paginationParams.set("rating", params.rating);
+  }
   const filterQuery = paginationParams.toString();
   const paginationBase = filterQuery
     ? `/bedrijven?${filterQuery}`
