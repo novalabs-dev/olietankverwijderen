@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
+import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
@@ -33,8 +34,6 @@ const breadcrumbItems = [
   { label: "Hoe werkt de vergelijking" },
 ];
 
-const REGISTER_URL =
-  "https://loket.rijkswaterstaat.nl/zoeken/publicatie/erkenningen-zoeken";
 
 export default function HoeWerktDeVergelijkingPage() {
   const webPageJsonLd: Record<string, unknown> = {
@@ -90,15 +89,17 @@ export default function HoeWerktDeVergelijkingPage() {
         <p>
           De bedrijfsgegevens komen uit het erkenningenregister van Bodem+
           (Rijkswaterstaat), het Kwalibo-register. Voor tanksanering gaat het om
-          een erkenning voor BRL K902 of BRL K904. De laatste controle was op
-          1 juli 2026. Sindsdien zijn de gegevens niet meer bijgewerkt. Ze
-          worden niet automatisch ververst.
+          een erkenning voor {ERKENNINGENREGISTER.certificaten}.{" "}
+          {ERKENNINGENREGISTER.tankreiniging} is tankreiniging. De laatste
+          controle was op {ERKENNINGENREGISTER.peildatumLabel}. Het register
+          zelf wijzigt doorlopend. Deze site werkt de gegevens niet automatisch
+          bij.
         </p>
         <p>
           Een vermelding betekent niet dat wij apart hebben vastgesteld dat het
           bedrijf op dit moment actief tanks saneert. Controleer de erkenning
           zelf in het{" "}
-          <a href={REGISTER_URL} rel="noopener noreferrer" target="_blank">
+          <a href={ERKENNINGENREGISTER.url} rel="noopener noreferrer" target="_blank">
             erkenningenregister van Rijkswaterstaat
           </a>
           .

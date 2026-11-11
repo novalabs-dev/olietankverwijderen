@@ -7,7 +7,9 @@ interface CertificeringBadgeProps {
 }
 
 const badgeColors: Record<string, string> = {
-  "BRL-7000": "bg-green-100 text-green-800 border-green-200",
+  K902: "bg-green-100 text-green-800 border-green-200",
+  K904: "bg-green-100 text-green-800 border-green-200",
+  K905: "bg-sky-100 text-sky-800 border-sky-200",
 };
 
 export function CertificeringBadge({
@@ -21,7 +23,7 @@ export function CertificeringBadge({
   return (
     <span
       className={`inline-flex items-center rounded-full border font-medium ${colorClasses} ${sizeClasses}`}
-      title={`Code uit ons bestand. Herkomst: ${ERKENNINGENREGISTER.naam}, peildatum ${ERKENNINGENREGISTER.peildatumLabel}. Voor tanksanering: ${ERKENNINGENREGISTER.certificaten}. Niet automatisch bijgewerkt.`}
+      title={`${certificering.certificering_types.naam}. Peildatum ${ERKENNINGENREGISTER.peildatumLabel}. Deze site werkt erkenningen niet automatisch bij.`}
     >
       {code}
     </span>

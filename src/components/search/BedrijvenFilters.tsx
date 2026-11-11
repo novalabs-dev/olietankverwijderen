@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
+import { OLIETANK_CERTIFICERINGEN } from "@/lib/erkenningen";
 import { reviewWeergave } from "@/lib/reviews";
 
 interface BedrijvenFiltersProps {
@@ -9,8 +10,11 @@ interface BedrijvenFiltersProps {
 }
 
 const CERTIFICERINGEN = [
-  { value: "", label: "Alle certificeringen" },
-  { value: "BRL-7000", label: "BRL-7000" },
+  { value: "", label: "Alle erkenningen" },
+  ...OLIETANK_CERTIFICERINGEN.map((item) => ({
+    value: item.code,
+    label: item.label,
+  })),
 ];
 
 const RATING_OPTIONS = [

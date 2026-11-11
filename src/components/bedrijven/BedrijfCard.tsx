@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { BedrijfCardData } from "@/lib/types";
-import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
+import { ERKENNINGENREGISTER, isZichtbareOlietankErkenning } from "@/lib/erkenningen";
 import { CertificeringBadge } from "./CertificeringBadge";
 import { ReviewSamenvatting } from "@/components/ui/ReviewSamenvatting";
 import { reviewWeergave } from "@/lib/reviews";
@@ -58,9 +58,9 @@ export function BedrijfCard({ bedrijf }: BedrijfCardProps) {
       </div>
 
       {/* Certification badges */}
-      {bedrijf.bedrijf_certificeringen.length > 0 && (
+      {bedrijf.bedrijf_certificeringen.some(isZichtbareOlietankErkenning) && (
         <div className="mt-3 flex flex-wrap gap-2">
-          {bedrijf.bedrijf_certificeringen.map((cert) => (
+          {bedrijf.bedrijf_certificeringen.filter(isZichtbareOlietankErkenning).map((cert) => (
             <CertificeringBadge
               key={cert.id}
               certificering={cert}

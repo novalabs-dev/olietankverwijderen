@@ -42,6 +42,7 @@ export interface CertificeringType {
   naam: string;
   beschrijving: string | null;
   url: string | null;
+  niche?: string | null;
 }
 
 export interface BedrijfCertificering {

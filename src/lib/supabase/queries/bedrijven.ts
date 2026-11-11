@@ -1,3 +1,4 @@
+import { isOlietankCertCode } from "@/lib/erkenningen";
 import { createClient } from "@/lib/supabase/server";
 import type { BedrijfCardData, BedrijfMetRelaties } from "@/lib/types";
 
@@ -33,10 +34,14 @@ export async function getBedrijven(
   // If filtering by certification, we need to get matching bedrijf IDs first
   let certFilterIds: string[] | null = null;
   if (filters?.certificering) {
+    if (!isOlietankCertCode(filters.certificering)) {
+      return { bedrijven: [], total: 0, page, pageSize, totalPages: 0 };
+    }
     const { data: certData } = await supabase
       .from("bedrijf_certificeringen")
-      .select("bedrijf_id, certificering_types!inner(code)")
-      .eq("certificering_types.code", filters.certificering);
+      .select("bedrijf_id, certificering_types!inner(code, niche)")
+      .eq("certificering_types.code", filters.certificering)
+      .eq("certificering_types.niche", "olietank");
 
     if (certData && certData.length > 0) {
       certFilterIds = certData.map((c) => c.bedrijf_id);

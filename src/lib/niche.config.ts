@@ -31,7 +31,9 @@ export const nicheConfig = {
 
   // Certificeringen
   certificeringen: [
-    { code: "BRL-7000", naam: "Code in het bestand. Tanksanering: BRL K902 of BRL K904, erkenningenregister Bodem+ (Rijkswaterstaat)." }
+    { code: "K902", naam: "BRL K902 - Tanksanering (HBO/diesel)" },
+    { code: "K904", naam: "BRL K904 - Tanksanering (overige producten)" },
+    { code: "K905", naam: "BRL K905 - Tankreiniging" },
   ],
 
   // Specialisaties
