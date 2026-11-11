@@ -9,6 +9,7 @@ import {
 } from "@/lib/supabase/queries/bedrijven";
 import { getProvincieFromPostcode } from "@/lib/postcode";
 import { BedrijfCard } from "@/components/bedrijven/BedrijfCard";
+import { VergelijkingToelichting } from "@/components/bedrijven/VergelijkingToelichting";
 import { BedrijvenFilters as FilterBar } from "@/components/search/BedrijvenFilters";
 import { Pagination } from "@/components/ui/Pagination";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
@@ -161,6 +162,8 @@ export default async function BedrijvenPage({
           <FilterBar provincies={provincies} />
         </Suspense>
       </div>
+
+      <VergelijkingToelichting />
 
       {bedrijven.length === 0 ? (
         <div className="rounded-lg border border-gray-200 bg-gray-50 p-8 text-center">
