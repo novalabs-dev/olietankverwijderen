@@ -5,14 +5,13 @@ import {
   getBedrijfBySlug,
   getBedrijfSlugs,
 } from "@/lib/supabase/queries/bedrijven";
-import { CertificeringBadge } from "@/components/bedrijven/CertificeringBadge";
 import { ErkenningenregisterLink } from "@/components/content/ErkenningenregisterLink";
 import { ReviewSamenvatting } from "@/components/ui/ReviewSamenvatting";
 import { StarRating } from "@/components/ui/StarRating";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import type { BedrijfMetRelaties, Review } from "@/lib/types";
-import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
+import { ERKENNINGENREGISTER, isZichtbareOlietankErkenning } from "@/lib/erkenningen";
 import { formatteerPeildatum, reviewStructuredData, reviewWeergave } from "@/lib/reviews";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
@@ -144,6 +143,9 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
     : undefined;
 
   const publishedReviews = bedrijf.reviews.filter((r) => r.is_published);
+  const olietankErkenningen = bedrijf.bedrijf_certificeringen.filter(
+    isZichtbareOlietankErkenning,
+  );
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },
@@ -201,12 +203,33 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
             )}
           </div>
 
-          {/* Certificeringen */}
-          {bedrijf.bedrijf_certificeringen.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {bedrijf.bedrijf_certificeringen.map((cert) => (
-                <CertificeringBadge key={cert.id} certificering={cert} />
-              ))}
+          {olietankErkenningen.length > 0 && (
+            <div className="mt-4">
+              <h2 className="text-sm font-semibold text-gray-900">Erkenningen</h2>
+              <ul className="mt-2 space-y-2">
+                {olietankErkenningen.map((cert) => {
+                  const href = cert.verificatie_url || ERKENNINGENREGISTER.url;
+                  return (
+                    <li key={cert.id} className="text-sm text-gray-700">
+                      <span className="font-medium text-gray-900">
+                        {cert.certificering_types.naam}
+                      </span>
+                      {cert.certificaat_nummer ? (
+                        <span> · certificaat {cert.certificaat_nummer}</span>
+                      ) : null}
+                      {" · "}
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 underline hover:text-blue-800"
+                      >
+                        erkenningenregister
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           )}
 
