@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { BedrijfCardData } from "@/lib/types";
 import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
 import { CertificeringBadge } from "./CertificeringBadge";
-import { StarRating } from "@/components/ui/StarRating";
+import { ReviewSamenvatting } from "@/components/ui/ReviewSamenvatting";
+import { reviewWeergave } from "@/lib/reviews";
 
 interface BedrijfCardProps {
   bedrijf: BedrijfCardData;
@@ -96,24 +97,17 @@ export function BedrijfCard({ bedrijf }: BedrijfCardProps) {
         )}
       </div>
 
-      {/* Rating + CTA */}
-      <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
-        <div className="flex items-center gap-2">
-          {bedrijf.gemiddelde_rating > 0 ? (
-            <>
-              <StarRating rating={bedrijf.gemiddelde_rating} />
-              <span className="text-sm font-medium text-gray-700">
-                {Number(bedrijf.gemiddelde_rating).toFixed(1)}
-              </span>
-              <span className="text-sm text-gray-500">
-                ({bedrijf.aantal_reviews} {bedrijf.aantal_reviews === 1 ? "review" : "reviews"})
-              </span>
-            </>
-          ) : (
-            <span className="text-sm text-gray-500">Nog geen reviews</span>
-          )}
-        </div>
-        <span className="text-sm font-medium text-blue-600">
+      {/* Rating + CTA. Scores stay hidden while reviewWeergave.zichtbaar is false. */}
+      <div
+        className={`mt-4 flex items-center gap-3 border-t border-gray-100 pt-3 ${
+          reviewWeergave.zichtbaar ? "justify-between" : "justify-end"
+        }`}
+      >
+        <ReviewSamenvatting
+          rating={bedrijf.gemiddelde_rating}
+          aantal={bedrijf.aantal_reviews}
+        />
+        <span className="shrink-0 text-sm font-medium text-blue-600">
           Bekijk &rarr;
         </span>
       </div>

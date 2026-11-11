@@ -81,8 +81,12 @@ export async function getBedrijven(
     query = query.in("id", certFilterIds);
   }
 
+  // Alfabetisch op naam zolang reviewscores niet getoond worden.
+  // Niet sorteren op gemiddelde_rating of is_premium: niemand betaalt voor een plek.
+  // Wijzigt de volgorde, werk dan ook /hoe-werkt-de-vergelijking bij.
   const { data, error, count } = await query
-    .order("gemiddelde_rating", { ascending: false })
+    .order("naam", { ascending: true })
+    .order("id", { ascending: true })
     .range(from, to);
 
   if (error) {

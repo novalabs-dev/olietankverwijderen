@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
+import { reviewWeergave } from "@/lib/reviews";
 
 interface BedrijvenFiltersProps {
   provincies: string[];
@@ -25,7 +26,9 @@ export function BedrijvenFilters({ provincies }: BedrijvenFiltersProps) {
   const currentPostcode = searchParams.get("postcode") ?? "";
   const currentProvincie = searchParams.get("provincie") ?? "";
   const currentCertificering = searchParams.get("certificering") ?? "";
-  const currentRating = searchParams.get("rating") ?? "";
+  const currentRating = reviewWeergave.zichtbaar
+    ? (searchParams.get("rating") ?? "")
+    : "";
 
   const updateFilter = useCallback(
     (key: string, value: string) => {
@@ -120,24 +123,26 @@ export function BedrijvenFilters({ provincies }: BedrijvenFiltersProps) {
           </select>
         </div>
 
-        {/* Rating */}
-        <div className="w-full sm:w-auto">
-          <label htmlFor="filter-rating" className="block text-xs font-medium text-gray-500 mb-1">
-            Beoordeling
-          </label>
-          <select
-            id="filter-rating"
-            value={currentRating}
-            onChange={(e) => updateFilter("rating", e.target.value)}
-            className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-44"
-          >
-            {RATING_OPTIONS.map((r) => (
-              <option key={r.value} value={r.value}>
-                {r.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Rating. Hidden while scores are not shown, so the list cannot be filtered on them. */}
+        {reviewWeergave.zichtbaar && (
+          <div className="w-full sm:w-auto">
+            <label htmlFor="filter-rating" className="block text-xs font-medium text-gray-500 mb-1">
+              Beoordeling
+            </label>
+            <select
+              id="filter-rating"
+              value={currentRating}
+              onChange={(e) => updateFilter("rating", e.target.value)}
+              className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 sm:w-44"
+            >
+              {RATING_OPTIONS.map((r) => (
+                <option key={r.value} value={r.value}>
+                  {r.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
         {/* Clear filters */}
         {hasFilters && (

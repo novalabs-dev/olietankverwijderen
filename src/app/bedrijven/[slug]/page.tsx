@@ -7,11 +7,13 @@ import {
 } from "@/lib/supabase/queries/bedrijven";
 import { CertificeringBadge } from "@/components/bedrijven/CertificeringBadge";
 import { ErkenningenregisterLink } from "@/components/content/ErkenningenregisterLink";
+import { ReviewSamenvatting } from "@/components/ui/ReviewSamenvatting";
 import { StarRating } from "@/components/ui/StarRating";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import JsonLd from "@/components/seo/JsonLd";
 import type { BedrijfMetRelaties, Review } from "@/lib/types";
 import { ERKENNINGENREGISTER } from "@/lib/erkenningen";
+import { formatteerPeildatum, reviewStructuredData, reviewWeergave } from "@/lib/reviews";
 import { DEFAULT_OG_IMAGES } from "@/lib/seo/og";
 
 const BASE_URL =
@@ -39,7 +41,7 @@ export async function generateMetadata({
   const title = `${bedrijf.naam} — Olietankverwijdering ${bedrijf.stad}`;
   const description =
     bedrijf.korte_beschrijving ??
-    `${bedrijf.naam} is een gecertificeerd olietankverwijderingsbedrijf in ${bedrijf.stad}. Bekijk reviews, certificeringen en neem zelf contact op.`;
+    `${bedrijf.naam} is een gecertificeerd olietankverwijderingsbedrijf in ${bedrijf.stad}. Bekijk certificeringen en neem zelf contact op.`;
 
   return {
     title,
@@ -103,35 +105,23 @@ function buildLocalBusinessJsonLd(
     };
   }
 
-  // Aggregate rating
-  if (bedrijf.gemiddelde_rating > 0 && bedrijf.aantal_reviews > 0) {
-    jsonLd.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: Number(bedrijf.gemiddelde_rating).toFixed(1),
-      reviewCount: bedrijf.aantal_reviews,
-      bestRating: 5,
-      worstRating: 1,
-    };
-  }
+  const structuredReviews = reviewStructuredData({
+    gemiddeldeRating: bedrijf.gemiddelde_rating,
+    aantalReviews: bedrijf.aantal_reviews,
+    reviews: publishedReviews.map((review) => ({
+      reviewerNaam: review.reviewer_naam,
+      rating: review.rating,
+      tekst: review.tekst,
+      titel: review.titel,
+      createdAt: review.created_at,
+    })),
+  });
 
-  // Individual reviews
-  if (publishedReviews.length > 0) {
-    jsonLd.review = publishedReviews.map((review) => ({
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: review.reviewer_naam,
-      },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: review.rating,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      datePublished: review.created_at.split("T")[0],
-      reviewBody: review.tekst,
-      ...(review.titel ? { name: review.titel } : {}),
-    }));
+  if (structuredReviews.aggregateRating) {
+    jsonLd.aggregateRating = structuredReviews.aggregateRating;
+  }
+  if (structuredReviews.review) {
+    jsonLd.review = structuredReviews.review;
   }
 
   return jsonLd;
@@ -200,15 +190,10 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
             <p className="text-gray-600">
               {bedrijf.stad}, {bedrijf.provincie}
             </p>
-            {bedrijf.gemiddelde_rating > 0 && (
-              <div className="flex items-center gap-1.5">
-                <StarRating rating={bedrijf.gemiddelde_rating} />
-                <span className="text-sm text-gray-500">
-                  {Number(bedrijf.gemiddelde_rating).toFixed(1)} (
-                  {bedrijf.aantal_reviews} reviews)
-                </span>
-              </div>
-            )}
+            <ReviewSamenvatting
+              rating={bedrijf.gemiddelde_rating}
+              aantal={bedrijf.aantal_reviews}
+            />
             {bedrijf.opgericht_jaar && (
               <span className="text-sm text-gray-500">
                 Actief sinds {bedrijf.opgericht_jaar}
@@ -276,12 +261,16 @@ export default async function BedrijfPage({ params }: BedrijfPageProps) {
             </div>
           )}
 
-          {/* Reviews */}
-          {publishedReviews.length > 0 && (
+          {/* Reviews. Hidden while reviewWeergave.zichtbaar is false. */}
+          {reviewWeergave.zichtbaar && publishedReviews.length > 0 && (
             <div className="mt-8">
               <h2 className="text-xl font-semibold text-gray-900">
                 Reviews ({publishedReviews.length})
               </h2>
+              <p className="mt-1 text-sm text-gray-500">
+                Bron: {reviewWeergave.bron}, peildatum:{" "}
+                {formatteerPeildatum(reviewWeergave.peildatum)}
+              </p>
               <div className="mt-4 space-y-4">
                 {publishedReviews.map((review) => (
                   <div
